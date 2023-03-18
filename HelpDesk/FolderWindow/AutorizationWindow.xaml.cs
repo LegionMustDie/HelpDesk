@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HelpDesk.FolderClass;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,21 @@ namespace HelpDesk.FolderWindow
         public AutorizationWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            ClassMessageBox.ExitMB();
+        }
+
+        private void btnEnter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            ClassMessageBox.ExitMB();
         }
     }
 }

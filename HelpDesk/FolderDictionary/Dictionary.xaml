@@ -5,12 +5,39 @@
                     <SolidColorBrush x:Key="MainStroke" Color="#545454"/>
                     <SolidColorBrush x:Key="MainTextColor" Color="#FAFAFA"/>
                     <SolidColorBrush x:Key="TextBoxMainColor" Color="#333333"/>
-                    <SolidColorBrush x:Key="TextBoxStrokeMainColor" Color="#545454"/>
                     <SolidColorBrush x:Key="MainButtonContentColor" Color="#000000"/>
                     <SolidColorBrush x:Key="AttentionColor" Color="#FF0000"/>
 
     <Style x:Key="Logo" TargetType="Image">
         <Setter Property="Source" Value="/FolderDictionary/FolderImage/logo.png"/>
+    </Style>
+
+    <Style x:Key="CloseImage" TargetType="Image">
+        <Setter Property="Source" Value="/FolderDictionary/FolderImage/close.png"/>
+        <Setter Property="Height" Value="17"/>
+        <Setter Property="Width" Value="21"/>
+    </Style>
+
+    <Style x:Key="CloseButton" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Margin" Value="98,0,0,17"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="3 12 3 3">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource TextBoxMainColor}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style x:Key="MainText" TargetType="Label">
@@ -31,20 +58,21 @@
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="Background" Value="{StaticResource TextBoxMainColor}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource TextBoxStrokeMainColor}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource MainStroke}"/>
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="Margin" Value="45,10,45,26"/>
         <Setter Property="Padding" Value="10 0 0 0"/>
+        <Setter Property="Cursor" Value="IBeam"/>
         <Setter Property="materialDesign:TextFieldAssist.TextFieldCornerRadius" Value="10"/>
         <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="Transparent"/>
         <Setter Property="materialDesign:HintAssist.IsFloating" Value="False"/>
         <Style.Triggers>
             <Trigger Property="IsFocused" Value="True">
-                <Setter Property="BorderBrush" Value="{StaticResource TextBoxStrokeMainColor}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource MainStroke}"/>
                 <Setter Property="materialDesign:HintAssist.Foreground" Value="{StaticResource MainTextColor}"/>
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="BorderBrush" Value="{StaticResource TextBoxStrokeMainColor}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource MainStroke}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -58,20 +86,21 @@
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="Background" Value="{StaticResource TextBoxMainColor}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource TextBoxStrokeMainColor}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource MainStroke}"/>
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="Margin" Value="45,10,45,26"/>
         <Setter Property="Padding" Value="10 0 0 0"/>
+        <Setter Property="Cursor" Value="IBeam"/>
         <Setter Property="materialDesign:TextFieldAssist.TextFieldCornerRadius" Value="10"/>
         <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="Transparent"/>
         <Setter Property="PasswordChar" Value="*"/>
         <Style.Triggers>
             <Trigger Property="IsFocused" Value="True">
-                <Setter Property="BorderBrush" Value="{StaticResource TextBoxStrokeMainColor}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource MainStroke}"/>
                 <Setter Property="materialDesign:HintAssist.Foreground" Value="{StaticResource MainTextColor}"/>
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="BorderBrush" Value="{StaticResource TextBoxStrokeMainColor}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource MainStroke}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -87,6 +116,7 @@
         <Setter Property="Background" Value="{StaticResource MainTextColor}"/>
         <Setter Property="Margin" Value="94,0,45,32"/>
         <Setter Property="Height" Value="49"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -108,7 +138,7 @@
     <Style x:Key="SecondaryButton" TargetType="Button"
            BasedOn="{StaticResource MainButton}">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="{StaticResource TextBoxStrokeMainColor}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource MainStroke}"/>
         <Setter Property="Foreground" Value="{StaticResource MainTextColor}"/>
         <Setter Property="Margin" Value="45,0,94,32"/>
         <Setter Property="Template">
@@ -116,7 +146,7 @@
                 <ControlTemplate TargetType="Button">
                     <Border Name="border" 
                         BorderThickness="2" 
-                        BorderBrush="{StaticResource TextBoxStrokeMainColor}" 
+                        BorderBrush="{StaticResource MainStroke}" 
                         CornerRadius="8" 
                         Background="{TemplateBinding Background}">
                         <ContentPresenter x:Name="Content" HorizontalAlignment="Center" VerticalAlignment="Center" />

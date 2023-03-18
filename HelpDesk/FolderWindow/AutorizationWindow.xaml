@@ -57,19 +57,27 @@
                          Grid.ColumnSpan="3"
                          materialDesign:HintAssist.Hint="Пароль"/>
 
+            <Button x:Name="btnClose" Grid.Column="2"
+                    Style="{DynamicResource CloseButton}"
+                    Click="btnClose_Click">
+                <Image Style="{StaticResource CloseImage}"/>
+            </Button>
+
             <Button x:Name="btnEnter"
                     Style="{DynamicResource MainButton}"
                     Grid.Row="9"
                     Content="Войти" 
                     Grid.ColumnSpan="2"
-                    Grid.Column="1" Cursor="Hand"/>
+                    Grid.Column="1"
+                    Click="btnEnter_Click"/>
 
             <Button x:Name="btnExit"
                     Style="{DynamicResource SecondaryButton}"
                     Grid.Row="9"
                     Content="Выйти" 
                     Grid.ColumnSpan="2"
-                    Grid.Column="0"/>
+                    Grid.Column="0"
+                    Click="btnExit_Click"/>
         </Grid>
     </Border>
 </Window>

@@ -19,6 +19,8 @@ namespace HelpDesk.FolderData
             : base("name=DBEntities")
         {
         }
+
+        
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

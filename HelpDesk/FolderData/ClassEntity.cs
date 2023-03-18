@@ -9,10 +9,10 @@ namespace HelpDesk.FolderData
 {
     public partial class DBEntities : DbContext
     {
-        private static DBEntities con;
-        public static DBEntities GC()
+        private static DBEntities context;
+        public static DBEntities GetContext()
         {
-            return con ?? (con = new DBEntities());
+            return context ?? (context = new DBEntities());
         }
     }
 }

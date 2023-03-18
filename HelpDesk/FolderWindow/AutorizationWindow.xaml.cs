@@ -41,7 +41,9 @@ namespace HelpDesk.FolderWindow
             {
                 try
                 {
-                    var user = DBEntities.GC.User
+                    var user = DBEntities.GetContext().User.
+                        FirstOrDefault(u=> u.LogUser == tbLogin.Text &&
+                        u.PasUser == pbPassword.Password);
                 }
                 catch (Exception ex)
                 {

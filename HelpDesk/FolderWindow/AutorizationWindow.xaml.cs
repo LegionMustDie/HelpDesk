@@ -1,4 +1,5 @@
 ﻿using HelpDesk.FolderClass;
+using HelpDesk.FolderData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +33,21 @@ namespace HelpDesk.FolderWindow
 
         private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
-
+            if (string.IsNullOrEmpty(tbLogin.Text))
+                ClassMessageBox.ErrorMB("Логин или пароль введены неверно");
+            if (string.IsNullOrEmpty(pbPassword.Password))
+                ClassMessageBox.ErrorMB("Логин или пароль введены неверно");
+            else
+            {
+                try
+                {
+                    var user = DBEntities.GC.User
+                }
+                catch (Exception ex)
+                {
+                    ClassMessageBox.ErrorMB(ex.Message);
+                }
+            }
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)

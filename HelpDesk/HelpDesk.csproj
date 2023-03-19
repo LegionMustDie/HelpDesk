@@ -107,8 +107,14 @@
     <Compile Include="FolderData\User.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="FolderPage\MainPageStaff.xaml.cs">
+      <DependentUpon>MainPageStaff.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FolderWindow\AutorizationWindow.xaml.cs">
       <DependentUpon>AutorizationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderWindow\FolderStaff\StaffMainPage.xaml.cs">
+      <DependentUpon>StaffMainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -148,15 +154,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FolderPage\MainPageStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FolderWindow\AutorizationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderWindow\FolderStaff\StaffMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="FolderPage\" />
     <Folder Include="FolderWindow\FolderOperator\" />
-    <Folder Include="FolderWindow\FolderStaff\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="FolderDictionary\FolderImage\logo.png" />

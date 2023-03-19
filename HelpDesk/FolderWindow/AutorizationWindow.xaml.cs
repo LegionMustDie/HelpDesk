@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using HelpDesk.FolderWindow.FolderStaff;
 
 namespace HelpDesk.FolderWindow
 {
@@ -33,17 +35,52 @@ namespace HelpDesk.FolderWindow
 
         private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
+
             if (string.IsNullOrEmpty(tbLogin.Text))
+            {
                 ClassMessageBox.ErrorMB("Логин или пароль введены неверно");
-            if (string.IsNullOrEmpty(pbPassword.Password))
+            }    
+                
+            else if (string.IsNullOrEmpty(pbPassword.Password))
+            {
                 ClassMessageBox.ErrorMB("Логин или пароль введены неверно");
+            }
+
             else
             {
                 try
                 {
-                    var user = DBEntities.GetContext().User.
-                        FirstOrDefault(u=> u.LogUser == tbLogin.Text &&
+                    var user = DBEntities.GetContext().User
+                        .FirstOrDefault(u=> u.LogUser == tbLogin.Text &&
                         u.PasUser == pbPassword.Password);
+
+                    if (user == null)
+                    {
+                        ClassMessageBox.ErrorMB("Логин или пароль введены неверно");
+                    }
+
+                    else if (user.PasUser != pbPassword.Password)
+                    {
+                        ClassMessageBox.ErrorMB("Логин или пароль введены неверно");
+                    }
+
+                    else
+                    {
+                        switch(user.IdRole)
+                        {
+                            case 1:
+                                ClassMessageBox.InfoMB("Авторизован");
+                                break;
+                            case 2:
+                                ClassMessageBox.InfoMB("Авторизован");
+                                break;
+                            case 3:
+                               new StaffMainPage().Show();
+                                Close();
+                                break;
+
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {

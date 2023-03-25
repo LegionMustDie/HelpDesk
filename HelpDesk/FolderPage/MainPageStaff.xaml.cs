@@ -24,5 +24,10 @@ namespace HelpDesk.FolderPage
         {
             InitializeComponent();
         }
+
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

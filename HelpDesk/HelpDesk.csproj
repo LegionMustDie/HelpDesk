@@ -190,6 +190,8 @@
       <DependentUpon>ModelDB.edmx</DependentUpon>
       <LastGenOutput>ModelDB.cs</LastGenOutput>
     </Content>
+    <Resource Include="FolderDictionary\FolderImage\acc.png" />
+    <Resource Include="FolderDictionary\FolderImage\header.png" />
     <Resource Include="FolderDictionary\FolderImage\ImageForSearch.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

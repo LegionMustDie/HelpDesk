@@ -18,6 +18,10 @@
         <Setter Property="Width" Value="21"/>
     </Style>
 
+    <Style x:Key="Header" TargetType="Image">
+        <Setter Property="Source" Value="/FolderDictionary/FolderImage/header.png"/>
+    </Style>
+
     <Style x:Key="CloseButton" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
@@ -52,6 +56,11 @@
     <Style x:Key="MainText2" TargetType="Label"
            BasedOn="{StaticResource MainText}">
         <Setter Property="FontSize" Value="38"/>
+    </Style>
+
+    <Style x:Key="PageButtonText" TargetType="Label"
+           BasedOn="{StaticResource MainText2}">
+        <Setter Property="FontSize" Value="20"/>
     </Style>
 
     <Style x:Key="MainTextBox" TargetType="TextBox"
@@ -159,6 +168,31 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource AttentionColor}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="PageButton" TargetType="Button"
+           BasedOn="{StaticResource SecondaryButton}">
+        <Setter Property="Width" Value="176"/>
+        <Setter Property="Height" Value="176"/>
+        <Setter Property="Margin" Value="0 0 0 0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border" 
+                        BorderThickness="2" 
+                        BorderBrush="{StaticResource MainStroke}" 
+                        CornerRadius="8" 
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter x:Name="Content" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource MainTextColor}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

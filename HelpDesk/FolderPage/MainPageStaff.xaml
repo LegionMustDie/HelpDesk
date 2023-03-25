@@ -52,11 +52,96 @@
                    Grid.Row="1"
                    Grid.RowSpan="2"/>
 
-        <TextBox x:Name="tbSearch"
+        <Canvas Grid.Column="0"
+                Grid.ColumnSpan="19"
+                Grid.Row="3" Width="1320">
+
+            <TextBox x:Name="tbSearch"
                      Style="{DynamicResource MainTextBox}"
                      Grid.Column="5"
                      Grid.ColumnSpan="9"
-                     Grid.Row="3" Margin="0,10,0,80"
-                     materialDesign:HintAssist.Hint="Опишите вашу проблему"/>
+                     Grid.Row="3"
+                     materialDesign:HintAssist.Hint="Опишите вашу проблему"
+                     TextChanged="tbSearch_TextChanged" Height="55" Width="502" 
+                     Canvas.Left="362"
+                     Panel.ZIndex="1"/>
+
+            <Image Style="{DynamicResource Header}"
+               Grid.Column="1"
+               Grid.ColumnSpan="17" Grid.RowSpan="4"
+               Width="1319" Height="276" 
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Center" 
+               Canvas.Top="-129" 
+               Canvas.Left="79"/>
+        </Canvas>
+
+        <Button x:Name="btnAcc"
+                Grid.Row="5"
+                Style="{DynamicResource PageButton}" 
+                Grid.Column="2">
+            <StackPanel Orientation="Vertical">
+                <Image Source="/FolderDictionary/FolderImage/acc.png" Height="70" Width="70" />
+                <Label Content="Аккаунт" Style="{DynamicResource PageButtonText}"/>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="btnDevice"
+                Grid.Row="5"
+                Style="{DynamicResource PageButton}" 
+                Grid.Column="4"
+                Grid.ColumnSpan="3">
+            <StackPanel Orientation="Vertical">
+                
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="btnAccess"
+                Grid.Row="5"
+                Style="{DynamicResource PageButton}" 
+                Grid.Column="8"
+                Grid.ColumnSpan="3">
+            <StackPanel Orientation="Vertical">
+
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="btnSoftware"
+                Grid.Row="5"
+                Style="{DynamicResource PageButton}" 
+                Grid.Column="12"
+                Grid.ColumnSpan="3">
+            <StackPanel Orientation="Vertical">
+
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="btnProduct"
+                Grid.Row="5"
+                Style="{DynamicResource PageButton}" 
+                Grid.Column="16">
+            <StackPanel Orientation="Vertical">
+
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="btnDoc"
+                Grid.Row="7"
+                Style="{DynamicResource PageButton}" 
+                Grid.Column="5"
+                Grid.ColumnSpan="5" Margin="51,0,52,0"/>
+        <StackPanel Orientation="Vertical">
+
+        </StackPanel>
+
+        <Button x:Name="btnOther"
+                Grid.Row="7"
+                Style="{DynamicResource PageButton}" 
+                Grid.Column="9"
+                Grid.ColumnSpan="5" Margin="51,0,52,0">
+            <StackPanel Orientation="Vertical">
+
+            </StackPanel>
+        </Button>
     </Grid>
 </Page>

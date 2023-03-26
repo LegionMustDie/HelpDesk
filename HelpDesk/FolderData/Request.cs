@@ -12,21 +12,19 @@ namespace HelpDesk.FolderData
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Request
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
-        {
-            this.Staff = new HashSet<Staff>();
-        }
+        public int IdRequest { get; set; }
+        public int IdCategory { get; set; }
+        public int IdStaff { get; set; }
+        public string TextRequest { get; set; }
+        public byte[] ImageOne { get; set; }
+        public byte[] ImageTwo { get; set; }
+        public byte[] ImageThree { get; set; }
+        public int IdStatus { get; set; }
     
-        public int IdUser { get; set; }
-        public string LogUser { get; set; }
-        public string PasUser { get; set; }
-        public int IdRole { get; set; }
-    
-        public virtual Role Role { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Staff> Staff { get; set; }
+        public virtual Category Category { get; set; }
+        public virtual Staff Staff { get; set; }
+        public virtual Status Status { get; set; }
     }
 }

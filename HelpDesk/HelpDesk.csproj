@@ -82,6 +82,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FolderClass\ClassMessageBox.cs" />
+    <Compile Include="FolderData\Category.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="FolderData\ClassEntity.cs" />
     <Compile Include="FolderData\ModelDB.Context.cs">
       <AutoGen>True</AutoGen>
@@ -98,7 +101,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="FolderData\Request.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="FolderData\Role.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FolderData\Section.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FolderData\Staff.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FolderData\Status.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="FolderData\sysdiagrams.cs">
@@ -109,6 +124,9 @@
     </Compile>
     <Compile Include="FolderPage\MainPageStaff.xaml.cs">
       <DependentUpon>MainPageStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderPage\Section\AccSection.xaml.cs">
+      <DependentUpon>AccSection.xaml</DependentUpon>
     </Compile>
     <Compile Include="FolderWindow\AutorizationWindow.xaml.cs">
       <DependentUpon>AutorizationWindow.xaml</DependentUpon>
@@ -158,6 +176,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FolderPage\Section\AccSection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FolderWindow\AutorizationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -180,6 +202,23 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="FolderDictionary\FolderImage\support.png" />
+    <Resource Include="FolderDictionary\FolderImage\attention.png" />
+    <Resource Include="FolderDictionary\FolderImage\lock.png" />
+    <Resource Include="FolderDictionary\FolderImage\secure.png" />
+    <Resource Include="FolderDictionary\FolderImage\recovery.png" />
+    <Resource Include="FolderDictionary\FolderImage\user_settings.png" />
+    <Resource Include="FolderDictionary\FolderImage\other.png" />
+    <Resource Include="FolderDictionary\FolderImage\docs.png" />
+    <Resource Include="FolderDictionary\FolderImage\product.png" />
+    <Resource Include="FolderDictionary\FolderImage\software.png" />
+    <Resource Include="FolderDictionary\FolderImage\access.png" />
+    <Resource Include="FolderDictionary\FolderImage\devices.png" />
+    <Resource Include="FolderDictionary\FolderImage\acc.png" />
+    <Resource Include="FolderDictionary\FolderImage\header.png" />
+    <Resource Include="FolderDictionary\FolderImage\ImageForSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="FolderData\ModelDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelDB.edmx</DependentUpon>
@@ -190,9 +229,6 @@
       <DependentUpon>ModelDB.edmx</DependentUpon>
       <LastGenOutput>ModelDB.cs</LastGenOutput>
     </Content>
-    <Resource Include="FolderDictionary\FolderImage\acc.png" />
-    <Resource Include="FolderDictionary\FolderImage\header.png" />
-    <Resource Include="FolderDictionary\FolderImage\ImageForSearch.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets')" />

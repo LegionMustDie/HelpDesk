@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HelpDesk.FolderClass;
+using HelpDesk.FolderPage.Section;
+using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +31,16 @@ namespace HelpDesk.FolderPage
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            ClassMessageBox.ExitMB();
+        }
+
+        private void btnAcc_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AccSection());
         }
     }
 }

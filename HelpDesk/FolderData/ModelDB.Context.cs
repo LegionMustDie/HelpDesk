@@ -19,15 +19,18 @@ namespace HelpDesk.FolderData
             : base("name=DBEntities")
         {
         }
-
-        
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Category> Category { get; set; }
+        public virtual DbSet<Request> Request { get; set; }
         public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Section> Section { get; set; }
+        public virtual DbSet<Staff> Staff { get; set; }
+        public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
     }

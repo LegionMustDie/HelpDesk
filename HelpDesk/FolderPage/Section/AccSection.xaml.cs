@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HelpDesk.FolderClass;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -28,17 +29,17 @@ namespace HelpDesk.FolderPage.Section
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-
+            ClassMessageBox.ExitMB();
         }
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            //заглушка
         }
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("\"C:\\Users\\thesk\\Desktop\\Проекты\\Верстка\\htrml\\index.html\"");
+           
         }
     }
 }

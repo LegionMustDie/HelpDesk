@@ -89,7 +89,7 @@
                 Grid.Column="2"
                 Click="btnSettings_Click">
             <StackPanel Orientation="Vertical">
-                <Image Source="/FolderDictionary/FolderImage/user_settings.png" Height="99" Width="90" />
+                <Image Source="/FolderDictionary/FolderImage/user_settings.png" Height="99" Width="70" />
                 <TextBlock Text="Управление аккаунтом" Style="{DynamicResource WrapText}"/>
             </StackPanel>
         </Button>
@@ -100,7 +100,7 @@
                 Grid.Column="4"
                 Grid.ColumnSpan="3">
             <StackPanel Orientation="Vertical">
-                <Image Source="/FolderDictionary/FolderImage/recovery.png" Height="99" Width="85" />
+                <Image Source="/FolderDictionary/FolderImage/recovery.png" Height="99" Width="78" />
                 <TextBlock Text="Восстановление аккаунта" Style="{DynamicResource WrapText}"/>
             </StackPanel>
         </Button>
@@ -111,7 +111,7 @@
                 Grid.Column="8"
                 Grid.ColumnSpan="3">
             <StackPanel Orientation="Vertical">
-                <Image Source="/FolderDictionary/FolderImage/secure.png" Height="99" Width="85" />
+                <Image Source="/FolderDictionary/FolderImage/secure.png" Height="99" Width="75" />
                 <TextBlock Text="Безопасность аккаунта" Style="{DynamicResource WrapText}"/>
             </StackPanel>
         </Button>
@@ -122,7 +122,7 @@
                 Grid.Column="12"
                 Grid.ColumnSpan="3">
             <StackPanel Orientation="Vertical">
-                <Image Source="/FolderDictionary/FolderImage/lock.png" Height="99" Width="85" />
+                <Image Source="/FolderDictionary/FolderImage/lock.png" Height="99" Width="75" />
                 <TextBlock Text="Конфидициальность аккаунта"
                            FontSize="16"
                            Style="{DynamicResource WrapText}"/>
@@ -134,7 +134,7 @@
                 Style="{DynamicResource PageButton}" 
                 Grid.Column="16">
             <StackPanel Orientation="Vertical">
-                <Image Source="/FolderDictionary/FolderImage/attention.png" Height="99" Width="88" />
+                <Image Source="/FolderDictionary/FolderImage/attention.png" Height="99" Width="78" />
                 <TextBlock Text="Устранение неполадок" Style="{DynamicResource WrapText}"/>
             </StackPanel>
         </Button>
@@ -145,7 +145,7 @@
                 Grid.Column="9"
                 Grid.ColumnSpan="5" Margin="51,0,52,0">
             <StackPanel Orientation="Vertical">
-                <Image Source="/FolderDictionary/FolderImage/support.png" Height="99" Width="90" />
+                <Image Source="/FolderDictionary/FolderImage/support.png" Height="99" Width="70" />
                 <TextBlock Text="Связаться с поддержкой" Style="{DynamicResource WrapText}"/>
             </StackPanel>
         </Button>
@@ -156,7 +156,7 @@
                 Grid.Column="5"
                 Grid.ColumnSpan="5" Margin="51,0,52,0">
             <StackPanel Orientation="Vertical">
-                <Image Source="/FolderDictionary/FolderImage/other.png" Height="80" Width="80" />
+                <Image Source="/FolderDictionary/FolderImage/other.png" Height="80" Width="70" />
                 <Label Content="Другое" Style="{DynamicResource PageButtonText}"/>
             </StackPanel>
         </Button>

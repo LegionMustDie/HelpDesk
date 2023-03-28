@@ -1,4 +1,6 @@
 ﻿using HelpDesk.FolderClass;
+using HelpDesk.FolderData;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -34,12 +36,17 @@ namespace HelpDesk.FolderPage.Section
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //заглушка
+            
         }
 
-        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        private void btnRecovery_Click(object sender, RoutedEventArgs e)
         {
-           
+            Process.Start("C:\\Users\\thesk\\Downloads\\Диплом (1)\\Диплом\\Сайты\\html\\spravka.html");
+        }
+
+        private void btnSupport_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddPostPage());
         }
     }
 }

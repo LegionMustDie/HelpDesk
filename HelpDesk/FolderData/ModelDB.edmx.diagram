@@ -4,21 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="728725d250764fd4a1177d1ef444f61f" Name="Diagram1">
-        <EntityTypeShape EntityType="HDBDModel.Category" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HDBDModel.Request" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HDBDModel.Role" Width="1.5" PointX="1.5" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HDBDModel.Section" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HDBDModel.Staff" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HDBDModel.Status" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="HDBDModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="HDBDModel.User" Width="1.5" PointX="1.5" PointY="11" IsExpanded="true" />
-        <AssociationConnector Association="HDBDModel.FK_Request_Category" ManuallyRouted="false" />
-        <AssociationConnector Association="HDBDModel.FK_Section_Category" ManuallyRouted="false" />
-        <AssociationConnector Association="HDBDModel.FK_Request_Staff" ManuallyRouted="false" />
-        <AssociationConnector Association="HDBDModel.FK_Request_Status" ManuallyRouted="false" />
-        <AssociationConnector Association="HDBDModel.FK_User_Role" ManuallyRouted="false" />
-        <AssociationConnector Association="HDBDModel.FK_Staff_User" ManuallyRouted="false" />
+      <Diagram DiagramId="b8277b82f3fc481b8d0872b118f2378a" Name="Diagram1">
+        <EntityTypeShape EntityType="HDDBModel.Role" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HDDBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HDDBModel.User" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="HDDBModel.FK_User_Role" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

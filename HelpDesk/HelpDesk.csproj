@@ -82,9 +82,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FolderClass\ClassMessageBox.cs" />
-    <Compile Include="FolderData\Category.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="FolderData\ClassEntity.cs" />
     <Compile Include="FolderData\ModelDB.Context.cs">
       <AutoGen>True</AutoGen>
@@ -101,19 +98,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="FolderData\Request.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="FolderData\Role.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FolderData\Section.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FolderData\Staff.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FolderData\Status.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="FolderData\sysdiagrams.cs">
@@ -121,6 +106,9 @@
     </Compile>
     <Compile Include="FolderData\User.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FolderPage\AddPostPage.xaml.cs">
+      <DependentUpon>AddPostPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="FolderPage\MainPageStaff.xaml.cs">
       <DependentUpon>MainPageStaff.xaml</DependentUpon>
@@ -172,6 +160,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FolderPage\AddPostPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FolderPage\MainPageStaff.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -217,6 +209,9 @@
     <Resource Include="FolderDictionary\FolderImage\acc.png" />
     <Resource Include="FolderDictionary\FolderImage\header.png" />
     <Resource Include="FolderDictionary\FolderImage\ImageForSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FolderDictionary\FolderImage\camera.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="FolderData\ModelDB.Context.tt">

@@ -86,8 +86,7 @@
         <Button x:Name="btnSettings"
                 Grid.Row="5"
                 Style="{DynamicResource PageButton}" 
-                Grid.Column="2"
-                Click="btnSettings_Click">
+                Grid.Column="2">
             <StackPanel Orientation="Vertical">
                 <Image Source="/FolderDictionary/FolderImage/user_settings.png" Height="99" Width="70" />
                 <TextBlock Text="Управление аккаунтом" Style="{DynamicResource WrapText}"/>
@@ -98,7 +97,8 @@
                 Grid.Row="5"
                 Style="{DynamicResource PageButton}" 
                 Grid.Column="4"
-                Grid.ColumnSpan="3">
+                Grid.ColumnSpan="3"
+                Click="btnRecovery_Click">
             <StackPanel Orientation="Vertical">
                 <Image Source="/FolderDictionary/FolderImage/recovery.png" Height="99" Width="78" />
                 <TextBlock Text="Восстановление аккаунта" Style="{DynamicResource WrapText}"/>
@@ -143,7 +143,8 @@
                 Grid.Row="7"
                 Style="{DynamicResource PageButton}" 
                 Grid.Column="9"
-                Grid.ColumnSpan="5" Margin="51,0,52,0">
+                Grid.ColumnSpan="5" Margin="51,0,52,0"
+                Click="btnSupport_Click">
             <StackPanel Orientation="Vertical">
                 <Image Source="/FolderDictionary/FolderImage/support.png" Height="99" Width="70" />
                 <TextBlock Text="Связаться с поддержкой" Style="{DynamicResource WrapText}"/>

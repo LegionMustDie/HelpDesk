@@ -27,6 +27,7 @@ namespace HelpDesk.FolderPage.Section
         public AccSection()
         {
             InitializeComponent();
+            tbSearch.ItemsSource = DBEntities.GetContext().SearchHelp.ToList();
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -41,12 +42,49 @@ namespace HelpDesk.FolderPage.Section
 
         private void btnRecovery_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("C:\\Users\\thesk\\Downloads\\Диплом (1)\\Диплом\\Сайты\\html\\spravka.html");
+            Process.Start("C:\\Users\\thesk\\Desktop\\Проекты\\Проекты C#\\Диплом\\Сайты\\html\\spravka.html");
         }
 
         private void btnSupport_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddPostPage());
+        }
+
+        private void tbSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (tbSearch.SelectedItem != null)
+            {
+                var item = tbSearch.SelectedItem as SearchHelp;
+
+                switch (item.IdObject)
+                {
+                    case 1:
+                        NavigationService.Navigate(new AccSection());
+                        break;
+                    case 8:
+                        Process.Start("C:\\Users\\thesk\\Desktop\\Проекты\\Проекты C#\\Диплом\\Сайты\\html\\spravka.html");
+                        break;
+                    default:
+                        ClassMessageBox.InfoMB("Страница в разработке");
+                        break;
+                }
+            }
+        }
+
+        private void tbSearch_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var searchValue = tbSearch.Text.ToLower();
+
+            var categories = DBEntities.GetContext().SearchHelp.Where(c => c.Name.ToLower().Contains(searchValue)).ToList();
+
+            if (categories != null && categories.Count > 0)
+            {
+                tbSearch.ItemsSource = categories;
+            }
+            else
+            {
+                tbSearch.ItemsSource = DBEntities.GetContext().SearchHelp.ToList();
+            }
         }
     }
 }

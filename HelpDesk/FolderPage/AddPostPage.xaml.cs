@@ -24,5 +24,15 @@ namespace HelpDesk.FolderPage
         {
             InitializeComponent();
         }
+
+        private void ImageBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ImageBtnTwo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

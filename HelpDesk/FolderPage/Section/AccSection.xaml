@@ -63,15 +63,21 @@
                 Grid.ColumnSpan="19"
                 Grid.Row="3" Width="1320">
 
-            <TextBox x:Name="tbSearch"
-                     Style="{DynamicResource MainTextBox}"
+            <ComboBox x:Name="tbSearch"
+                     Style="{DynamicResource ComboSearch}"
                      Grid.Column="5"
                      Grid.ColumnSpan="9"
                      Grid.Row="3"
                      materialDesign:HintAssist.Hint="Опишите вашу проблему"
-                     TextChanged="tbSearch_TextChanged" Height="55" Width="502" 
-                     Canvas.Left="362"
-                     Panel.ZIndex="1"/>
+                     SelectionChanged="tbSearch_SelectionChanged"
+                     PreviewTextInput="tbSearch_PreviewTextInput"
+                     IsEditable="True" 
+                     IsTextSearchEnabled="False"
+                     DisplayMemberPath="Name"
+                     SelectedValuePath="IdObject"
+                     Height="55" Width="502" 
+                     Canvas.Left="407"
+                     Panel.ZIndex="1" Cursor="IBeam"/>
 
             <Image Style="{DynamicResource Header}"
                Grid.Column="1"

@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:HelpDesk.FolderPage"
       mc:Ignorable="d" 
       d:DesignHeight="780" d:DesignWidth="1320"
@@ -10,18 +11,118 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="250"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="140"/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="160"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="290"/>
+            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Раздел"
+               Grid.Row="1"
+               Grid.Column="1"
+               Style="{DynamicResource MainText2}"
+               HorizontalContentAlignment="Left"/>
+
+        <ComboBox Name="cbSection"
+                  Grid.Column="1"
+                  Grid.ColumnSpan="9"
+                  Grid.Row="3"
+                  Style="{DynamicResource ComboBoxMainStyle}" 
+                  Height="50" VerticalAlignment="Top"/>
+
+        <TextBox Name="tbText"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="9"
+                 Grid.Row="5"
+                 Style="{DynamicResource MainTextBox}" 
+                 Margin="0,0,0,0"
+                 TextWrapping="Wrap"
+                 VerticalContentAlignment="Top"
+                 HorizontalContentAlignment="Left" Cursor="IBeam"
+                 Padding="5"/>
+
+        <Button x:Name="ImageBtn"
+                Click="ImageBtn_Click"
+                Grid.Column="1"
+                Grid.Row="7"
+                Style="{DynamicResource ImageBtn}" Margin="0,20,40,20">
+            <Button.Content>
+                <Image
+                      x:Name="PhotoStaff"
+                      Source="{Binding Photo}" 
+                      Height="116" Width="116"/>
+            </Button.Content>
+        </Button>
+
+        <Button x:Name="ImageBtnTwo"
+                Click="ImageBtnTwo_Click"
+                Grid.Column="3"
+                Grid.Row="7"
+                Style="{DynamicResource ImageBtn}" Margin="0,20,40,20">
+            <Button.Content>
+                <Image
+                      x:Name="PhotoStaffTwo"
+                      Source="{Binding Photo}" 
+                       Height="116" Width="116"/>
+            </Button.Content>
+        </Button>
+
+        <Button x:Name="ImageBtnThree"
+                Click="ImageBtnTwo_Click"
+                Grid.Column="5"
+                Grid.Row="7"
+                Style="{DynamicResource ImageBtn}" Margin="0,20,40,20">
+            <Button.Content>
+                <Image
+                      x:Name="PhotoStaffThree"
+                      Source="{Binding Photo}" 
+                       Height="116" Width="116"/>
+            </Button.Content>
+        </Button>
+
+        <Image Source="/FolderDictionary/FolderImage/Photo.png"
+                Grid.Column="1"
+                Grid.Row="7" Margin="28,48,68,48"/>
+
+        <Image Source="/FolderDictionary/FolderImage/Photo.png"
+                Grid.Column="3"
+                Grid.Row="7" Margin="28,48,68,48"/>
+
+        <Image Source="/FolderDictionary/FolderImage/Photo.png"
+                Grid.Column="5"
+                Grid.Row="7" Margin="28,48,68,48"/>
+
+        <Button Name="btnSend"
+                Grid.Column="9"
+                Grid.Row="9" 
+                Style="{DynamicResource MainButton}" Margin="0,0,0,0"
+                Content="Отправить"/>
+
+        <Button Name="btnBack"
+                Grid.Column="7"
+                Grid.Row="9" 
+                Style="{DynamicResource SecondaryButton}" Margin="0,0,0,0"
+                Content="Назад" Cursor="Hand"/>
     </Grid>
 </Page>

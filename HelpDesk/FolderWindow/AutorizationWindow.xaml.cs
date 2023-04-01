@@ -23,6 +23,11 @@ namespace HelpDesk.FolderWindow
     /// </summary>
     public partial class AutorizationWindow : Window
     {
+
+        private int wrongCounts = 0;
+        private int sum = 15000;
+        private int extraTime = 20000;
+
         public AutorizationWindow()
         {
             InitializeComponent();
@@ -35,6 +40,20 @@ namespace HelpDesk.FolderWindow
 
         private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
+
+            if (wrongCounts > 3)
+            {
+                sum += extraTime;
+                BlockSystem();
+                return;
+            }
+
+            if (wrongCounts == 3)
+            {
+                wrongCounts++;
+                BlockSystem();
+                return;
+            }
 
             if (string.IsNullOrEmpty(tbLogin.Text))
             {
@@ -57,11 +76,13 @@ namespace HelpDesk.FolderWindow
                     if (user == null)
                     {
                         ClassMessageBox.ErrorMB("Логин или пароль введены неверно");
+                        wrongCounts++;
                     }
 
                     else if (user.PasUser != pbPassword.Password)
                     {
                         ClassMessageBox.ErrorMB("Логин или пароль введены неверно");
+                        wrongCounts++;
                     }
 
                     else
@@ -88,6 +109,13 @@ namespace HelpDesk.FolderWindow
                 }
             }
         }
+
+       private void BlockSystem()
+       {
+               ClassMessageBox.ErrorMB($"Система заблокирована на {sum / 1000} секунд!");
+               Thread.Sleep(sum);
+               ClassMessageBox.InfoMB("Система разрблокирована, но в случае повторной ошибки данных будет вновь заблокирована!");
+       }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {

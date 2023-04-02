@@ -41,6 +41,7 @@ namespace HelpDesk.FolderPage
 
         private void btnAcc_Click(object sender, RoutedEventArgs e)
         {
+            VariableClass.IdCategory = 1;
             NavigationService.Navigate(new AccSection());
         }
 

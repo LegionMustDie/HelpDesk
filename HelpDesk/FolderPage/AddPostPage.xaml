@@ -48,8 +48,10 @@
                   Grid.Column="1"
                   Grid.ColumnSpan="9"
                   Grid.Row="3"
+                  DisplayMemberPath="NameCategory"
+                  SelectedValuePath="IdCategory"
                   Style="{DynamicResource ComboBoxMainStyle}" 
-                  Height="50" VerticalAlignment="Top"/>
+                  Height="50" VerticalAlignment="Top" Cursor="Hand"/>
 
         <TextBox Name="tbText"
                  Grid.Column="1"
@@ -70,7 +72,7 @@
             <Button.Content>
                 <Image
                       x:Name="PhotoStaff"
-                      Source="{Binding Photo}" 
+                     
                       Height="116" Width="116"/>
             </Button.Content>
         </Button>
@@ -79,7 +81,8 @@
                 Click="ImageBtnTwo_Click"
                 Grid.Column="3"
                 Grid.Row="7"
-                Style="{DynamicResource ImageBtn}" Margin="0,20,40,20">
+                Style="{DynamicResource ImageBtn}" 
+                Margin="0,20,40,20">
             <Button.Content>
                 <Image
                       x:Name="PhotoStaffTwo"
@@ -89,7 +92,7 @@
         </Button>
 
         <Button x:Name="ImageBtnThree"
-                Click="ImageBtnTwo_Click"
+                Click="ImageBtnThree_Click"
                 Grid.Column="5"
                 Grid.Row="7"
                 Style="{DynamicResource ImageBtn}" Margin="0,20,40,20">
@@ -117,12 +120,14 @@
                 Grid.Column="9"
                 Grid.Row="9" 
                 Style="{DynamicResource MainButton}" Margin="0,0,0,0"
-                Content="Отправить"/>
+                Content="Отправить"
+                Click="btnSend_Click"/>
 
         <Button Name="btnBack"
                 Grid.Column="7"
                 Grid.Row="9" 
                 Style="{DynamicResource SecondaryButton}" Margin="0,0,0,0"
-                Content="Назад" Cursor="Hand"/>
+                Content="Назад" Cursor="Hand"
+                Click="btnBack_Click"/>
     </Grid>
 </Page>

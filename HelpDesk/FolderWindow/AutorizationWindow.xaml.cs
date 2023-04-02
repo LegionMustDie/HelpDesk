@@ -96,7 +96,9 @@ namespace HelpDesk.FolderWindow
                                 ClassMessageBox.InfoMB("Авторизован");
                                 break;
                             case 3:
-                               new StaffMainPage().Show();
+                                VariableClass.IdUser = user.IdUser;
+                                VariableClass.staff = DBEntities.GetContext().Staff.FirstOrDefault(c => c.IdUser == user.IdUser);
+                                new StaffMainPage().Show();
                                 Close();
                                 break;
 

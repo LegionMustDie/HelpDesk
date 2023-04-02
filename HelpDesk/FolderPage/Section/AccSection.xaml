@@ -45,8 +45,26 @@
 
         <Button x:Name="btnClose" Grid.Column="17"
                     Style="{DynamicResource AnotherCloseButton}"
-                    Click="btnClose_Click" Margin="74,0,-1,36" Grid.ColumnSpan="2" Cursor="Hand">
+                    Click="btnClose_Click" Margin="74,0,-1,36" 
+                    Grid.ColumnSpan="2" Cursor="Hand">
             <Image Style="{StaticResource CloseImage}"/>
+        </Button>
+
+        <Button x:Name="btnBack"
+                Grid.ColumnSpan="2" Margin="0,0,73,36"
+                Style="{DynamicResource BackButton}" Cursor="Hand"
+                Click="btnBack_Click">
+            <Image Style="{StaticResource BackImage}" 
+                   RenderTransformOrigin="0.5,0.5" Height="25" Width="30" Cursor="">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
         </Button>
 
         <Image Style="{DynamicResource Logo}"

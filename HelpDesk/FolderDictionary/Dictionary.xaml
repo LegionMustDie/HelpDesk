@@ -17,6 +17,12 @@
         <Setter Property="Height" Value="17"/>
         <Setter Property="Width" Value="21"/>
     </Style>
+    
+    <Style x:Key="BackImage" TargetType="Image">
+        <Setter Property="Source" Value="/FolderDictionary/FolderImage/back_arrow.png" />
+        <Setter Property="Height" Value="17"/>
+        <Setter Property="Width" Value="21"/>
+    </Style>
 
     <Style x:Key="Header" TargetType="Image">
         <Setter Property="Source" Value="/FolderDictionary/FolderImage/header.png"/>
@@ -50,7 +56,21 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="{TemplateBinding Background}"
-                            CornerRadius="3 17 3 3" Cursor="">
+                            CornerRadius="3 18 3 3" Cursor="">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BackButton" TargetType="Button"
+           BasedOn="{StaticResource AnotherCloseButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="13 3 3 3" Cursor="">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>

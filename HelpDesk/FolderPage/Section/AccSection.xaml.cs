@@ -35,11 +35,6 @@ namespace HelpDesk.FolderPage.Section
             ClassMessageBox.ExitMB();
         }
 
-        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
-        }
-
         private void btnRecovery_Click(object sender, RoutedEventArgs e)
         {
             Process.Start("C:\\Users\\thesk\\Desktop\\Проекты\\Проекты C#\\Диплом\\Сайты\\html\\spravka.html");
@@ -85,6 +80,11 @@ namespace HelpDesk.FolderPage.Section
             {
                 tbSearch.ItemsSource = DBEntities.GetContext().SearchHelp.ToList();
             }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

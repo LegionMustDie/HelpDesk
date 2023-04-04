@@ -122,9 +122,6 @@
     <Compile Include="FolderData\Status.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="FolderData\sysdiagrams.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="FolderData\User.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -139,6 +136,15 @@
     </Compile>
     <Compile Include="FolderWindow\AutorizationWindow.xaml.cs">
       <DependentUpon>AutorizationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderWindow\FolderMB\ErrorWindow.xaml.cs">
+      <DependentUpon>ErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderWindow\FolderMB\InfoWindow.xaml.cs">
+      <DependentUpon>InfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderWindow\FolderMB\QuestionWindow.xaml.cs">
+      <DependentUpon>QuestionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="FolderWindow\FolderStaff\StaffMainPage.xaml.cs">
       <DependentUpon>StaffMainPage.xaml</DependentUpon>
@@ -197,6 +203,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FolderWindow\FolderMB\ErrorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderWindow\FolderMB\InfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderWindow\FolderMB\QuestionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FolderWindow\FolderStaff\StaffMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -249,6 +267,9 @@
       <DependentUpon>ModelDB.edmx</DependentUpon>
       <LastGenOutput>ModelDB.cs</LastGenOutput>
     </Content>
+    <Resource Include="FolderDictionary\FolderImage\error.png" />
+    <Resource Include="FolderDictionary\FolderImage\info.png" />
+    <Resource Include="FolderDictionary\FolderImage\question.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets')" />

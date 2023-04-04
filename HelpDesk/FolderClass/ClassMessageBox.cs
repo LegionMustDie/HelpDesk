@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HelpDesk.FolderWindow.FolderMB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,20 +12,18 @@ namespace HelpDesk.FolderClass
     {
         public static void InfoMB (string Message)
         {
-            MessageBox.Show(Message, "Все готово!", 
-                MessageBoxButton.OK, MessageBoxImage.Information);
+            new InfoWindow(Message).ShowDialog();
         }
 
         public static void ErrorMB(string Message)
         {
-            MessageBox.Show(Message, "Что-то пошло не так...",
-                MessageBoxButton.OK, MessageBoxImage.Error);
+            new ErrorWindow(Message).ShowDialog();
         }
 
         public static bool QuestionMB(string Message)
         {
-          return MessageBoxResult.Yes == MessageBox.Show(Message, "Хм... вы уверены? ",
-                MessageBoxButton.YesNo, MessageBoxImage.Question);
+          new QuestionWindow(Message).ShowDialog();
+            return VariableClass.IsAccepted;
         }
 
         public static void ExitMB()

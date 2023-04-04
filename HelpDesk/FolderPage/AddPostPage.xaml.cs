@@ -27,16 +27,15 @@ namespace HelpDesk.FolderPage
     {
         Status status;
         Request request_per;
-        private byte[] _imageBytes;
+        private byte[] _imageBytes = null;
+        private byte[] imageBytesForPhoto2 = null;
+        private byte[] imageBytesForPhoto3 = null;
         public AddPostPage()
         {
             InitializeComponent();
             cbSection.ItemsSource = DBEntities.GetContext().Category.ToList();
             ImageBtn.Visibility = Visibility.Visible;
-            ImageBtnTwo.Visibility = Visibility.Hidden;
-            ImageBtnThree.Visibility = Visibility.Hidden;
             cbLoader();
-            InvisibleButtons();
         }
 
         private void ImageBtn_Click(object sender, RoutedEventArgs e)
@@ -46,24 +45,42 @@ namespace HelpDesk.FolderPage
             op.Filter = "All suported graphics |*.jpg;*.jpeg;*.png";
             if (op.ShowDialog() == true)
             {
-                //VariableClass.SelectedFileName = op.FileName;
-                //request_per.ImageOne = ImageClass.ConvertImageToByteArray(VariableClass.SelectedFileName);
-                //PhotoStaff.Source = ImageClass.ConvertByteArrayToImage(request_per.ImageOne);
-
                 var bitmapImage = new BitmapImage(new Uri(op.FileName));
                 PhotoStaff.Source = bitmapImage;
                 _imageBytes = File.ReadAllBytes(op.FileName);
             }
+            ImageTwo.Visibility = Visibility.Visible;
+            ImageBtnTwo.Visibility = Visibility.Visible;
         }
+
+        
 
         private void ImageBtnTwo_Click(object sender, RoutedEventArgs e)
         {
-
+            OpenFileDialog op = new OpenFileDialog();
+            op.InitialDirectory = "";
+            op.Filter = "All suported graphics |*.jpg;*.jpeg;*.png";
+            if (op.ShowDialog() == true)
+            {
+                var bitmapImage = new BitmapImage(new Uri(op.FileName));
+                PhotoStaffTwo.Source = bitmapImage;
+                imageBytesForPhoto2 = File.ReadAllBytes(op.FileName);
+            }
+            ImageThree.Visibility = Visibility.Visible;
+            ImageBtnThree.Visibility = Visibility.Visible;
         }
 
         private void ImageBtnThree_Click(object sender, RoutedEventArgs e)
         {
-
+            OpenFileDialog op = new OpenFileDialog();
+            op.InitialDirectory = "";
+            op.Filter = "All suported graphics |*.jpg;*.jpeg;*.png";
+            if (op.ShowDialog() == true)
+            {
+                var bitmapImage = new BitmapImage(new Uri(op.FileName));
+                PhotoStaffThree.Source = bitmapImage;
+                imageBytesForPhoto3 = File.ReadAllBytes(op.FileName);
+            }
         }
 
         private void cbLoader()
@@ -93,7 +110,9 @@ namespace HelpDesk.FolderPage
                         IdStaff = VariableClass.staff.IdStaff,
                         TextRequest = tbText.Text,
                         IdStatus = 1,
-                        ImageOne = _imageBytes
+                        ImageOne = _imageBytes,
+                        ImageTwo = imageBytesForPhoto2,
+                        ImageThree = imageBytesForPhoto3,
                     };
                     DBEntities.GetContext().Request.Add(request);
                     DBEntities.GetContext().SaveChanges();
@@ -122,12 +141,11 @@ namespace HelpDesk.FolderPage
             return true;
         }
 
-        private void InvisibleButtons()
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            if (PhotoStaff != null) // если в первой кнопке загружена фотография
-            {
-                ImageBtnTwo.Visibility = Visibility.Visible; // показываем вторую кнопку
-            }
+            ClassMessageBox.ExitMB();
         }
+
     }
 }

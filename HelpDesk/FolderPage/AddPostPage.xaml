@@ -15,7 +15,7 @@
             <RowDefinition Height="60"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="60"/>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="250"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="160"/>
@@ -37,11 +37,24 @@
             <ColumnDefinition Width="170"/>
             <ColumnDefinition Width="30"/>
         </Grid.ColumnDefinitions>
+        <Button x:Name="btnClose" Grid.Column="9"
+                Margin="142,0,2,0"
+                    Style="{DynamicResource AnotherCloseButton}"
+                    Click="btnClose_Click"  Cursor="Hand" Grid.ColumnSpan="2">
+            <Image Style="{StaticResource CloseImage}"/>
+        </Button>
 
         <Label Content="Раздел"
                Grid.Row="1"
                Grid.Column="1"
                Style="{DynamicResource MainText2}"
+               HorizontalContentAlignment="Left"/>
+
+        <Label Content="Опишите вашу проблему"
+               Grid.Row="4"
+               Grid.Column="1"
+               Grid.ColumnSpan="5"
+               Style="{DynamicResource MainText}"
                HorizontalContentAlignment="Left"/>
 
         <ComboBox Name="cbSection"
@@ -67,12 +80,12 @@
         <Button x:Name="ImageBtn"
                 Click="ImageBtn_Click"
                 Grid.Column="1"
+                Panel.ZIndex="1"
                 Grid.Row="7"
                 Style="{DynamicResource ImageBtn}" Margin="0,20,40,20">
             <Button.Content>
                 <Image
                       x:Name="PhotoStaff"
-                     
                       Height="116" Width="116"/>
             </Button.Content>
         </Button>
@@ -81,12 +94,13 @@
                 Click="ImageBtnTwo_Click"
                 Grid.Column="3"
                 Grid.Row="7"
+                Visibility="Hidden"
+                Panel.ZIndex="1"
                 Style="{DynamicResource ImageBtn}" 
                 Margin="0,20,40,20">
             <Button.Content>
                 <Image
                       x:Name="PhotoStaffTwo"
-                      Source="{Binding Photo}" 
                        Height="116" Width="116"/>
             </Button.Content>
         </Button>
@@ -94,26 +108,34 @@
         <Button x:Name="ImageBtnThree"
                 Click="ImageBtnThree_Click"
                 Grid.Column="5"
+                Panel.ZIndex="1"
+                Visibility="Hidden"
                 Grid.Row="7"
                 Style="{DynamicResource ImageBtn}" Margin="0,20,40,20">
             <Button.Content>
                 <Image
                       x:Name="PhotoStaffThree"
-                      Source="{Binding Photo}" 
                        Height="116" Width="116"/>
             </Button.Content>
         </Button>
 
         <Image Source="/FolderDictionary/FolderImage/Photo.png"
                 Grid.Column="1"
+               Panel.ZIndex="0"
                 Grid.Row="7" Margin="28,48,68,48"/>
 
         <Image Source="/FolderDictionary/FolderImage/Photo.png"
                 Grid.Column="3"
+               x:Name="ImageTwo"
+               Visibility="Hidden"
+               Panel.ZIndex="0"
                 Grid.Row="7" Margin="28,48,68,48"/>
 
         <Image Source="/FolderDictionary/FolderImage/Photo.png"
                 Grid.Column="5"
+               x:Name="ImageThree"
+               Visibility="Hidden"
+               Panel.ZIndex="0"
                 Grid.Row="7" Margin="28,48,68,48"/>
 
         <Button Name="btnSend"

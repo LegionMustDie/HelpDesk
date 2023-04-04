@@ -1,0 +1,52 @@
+﻿<Window x:Class="HelpDesk.FolderWindow.FolderMB.QuestionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HelpDesk.FolderWindow.FolderMB"
+        mc:Ignorable="d"
+        Title="Вопрос" Height="270" Width="500"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        WindowStyle="None" Background="Transparent"
+        AllowsTransparency="True">
+    <Border Width="Auto" Height="Auto" Name="windowFrame"
+          CornerRadius="15"
+          Background="{DynamicResource Mainbg}"
+          BorderThickness="3"
+          BorderBrush="#25B7D3">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/FolderDictionary/FolderImage/question.png"
+                       Width="75"
+                       Margin="0 0 15 0"/>
+                <Label Content="Хм... Вы уверены?"
+                       FontSize="32"
+                       Style="{DynamicResource MainText}"/>
+            </StackPanel>
+
+            <TextBlock Grid.Row="1"
+                       Style="{DynamicResource WrapText}"
+                       VerticalAlignment="Center"
+                       x:Name="QuestionTbl"/>
+            <Button x:Name="YesBtn"
+                    Content="Да"
+                    Grid.Row="2"
+                    Margin="254,10,50,10"
+                    Width="150"
+                    Style="{DynamicResource MainButton}"
+                    Click="YesBtn_Click"/>
+            <Button x:Name="noBtn"
+                    Content="Нет"
+                    Grid.Row="2"
+                    Margin="50,10,254,10"
+                    Width="150"
+                    Style="{DynamicResource SecondaryButton}"
+                    Click="noBtn_Click"/>
+        </Grid>
+    </Border>
+</Window>

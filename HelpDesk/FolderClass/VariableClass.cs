@@ -14,5 +14,6 @@ namespace HelpDesk.FolderClass
         public static Staff staff { get; set; }
         public static string SelectedFileName { get; set; }
         public byte[] ImageData { get; set; }
+        public static bool IsAccepted { get; set; }
     }
 }

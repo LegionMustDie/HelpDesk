@@ -1,0 +1,45 @@
+﻿<Window x:Class="HelpDesk.FolderWindow.FolderMB.ErrorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HelpDesk.FolderWindow.FolderMB"
+        mc:Ignorable="d"
+        Title="Ошибка" Height="270" Width="500"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        WindowStyle="None" Background="Transparent"
+        AllowsTransparency="True">
+    <Border Width="Auto" Height="Auto" Name="windowFrame"
+          CornerRadius="15"
+          Background="{DynamicResource Mainbg}"
+          BorderThickness="3"
+          BorderBrush="#EA2D3F">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/FolderDictionary/FolderImage/error.png"
+                       Width="75"
+                       Margin="0 0 15 0"/>
+                <Label Content="Что-то пошло не так..."
+                       FontSize="32"
+                       Style="{DynamicResource MainText}"/>
+            </StackPanel>
+
+            <TextBlock Grid.Row="1"
+                       Style="{DynamicResource WrapText}"
+                       VerticalAlignment="Center"
+                       x:Name="ErrorTbl"/>
+            <Button x:Name="OkBtn"
+                    Content="Ок"
+                    Grid.Row="2"
+                    Margin="0"
+                    Width="150"
+                    Style="{DynamicResource MainButton}"
+                    Click="OkBtn_Click"/>
+        </Grid>
+    </Border>
+</Window>

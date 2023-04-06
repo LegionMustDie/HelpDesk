@@ -7,6 +7,7 @@
                     <SolidColorBrush x:Key="TextBoxMainColor" Color="#333333"/>
                     <SolidColorBrush x:Key="MainButtonContentColor" Color="#000000"/>
                     <SolidColorBrush x:Key="AttentionColor" Color="#FF0000"/>
+                    <SolidColorBrush x:Key="dgColumnHeader" Color="#727272"/>
 
     <Style x:Key="Logo" TargetType="Image">
         <Setter Property="Source" Value="/FolderDictionary/FolderImage/logo.png"/>
@@ -46,6 +47,24 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{StaticResource TextBoxMainColor}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="nbgButton" TargetType="Button"
+           BasedOn="{StaticResource CloseButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Transparent"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -276,8 +295,41 @@
 
     <Style x:Key="ComboSearch" TargetType="ComboBox"
            BasedOn="{StaticResource ComboBoxMainStyle}">
-        
     </Style>
 
-    
+    <Style x:Key="dgMainStyle" TargetType="DataGrid"
+           BasedOn="{StaticResource MaterialDesignDataGrid}">
+        <Setter Property="FontFamily" Value="VK Sans Display"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Foreground" Value="{StaticResource MainTextColor}"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="{StaticResource MainStroke}"/>
+        <Setter Property="BorderThickness" Value="3"/>
+        <Setter Property="HorizontalGridLinesBrush" Value="{StaticResource MainStroke}"/>
+        <Setter Property="VerticalGridLinesBrush" Value="{StaticResource MainStroke}"/>
+        <Setter Property="materialDesign:TextFieldAssist.TextFieldCornerRadius" Value="10"/>
+    </Style>
+
+    <Style TargetType="DataGridColumnHeader">
+        <Setter Property="Foreground" Value="{StaticResource dgColumnHeader}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+
+    <Style TargetType="{x:Type DataGridCell}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          Margin="8"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

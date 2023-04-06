@@ -44,7 +44,8 @@
 
         <Button x:Name="btnClose" Grid.Column="17"
                     Style="{DynamicResource AnotherCloseButton}"
-                    Click="btnClose_Click" Margin="74,0,-1,36" Grid.ColumnSpan="2" Cursor="Hand">
+                    Click="btnClose_Click" Margin="74,0,-1,36"
+                    Grid.ColumnSpan="2" Cursor="Hand">
             <Image Style="{StaticResource CloseImage}"/>
         </Button>
 

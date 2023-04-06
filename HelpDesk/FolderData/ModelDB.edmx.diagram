@@ -4,23 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="da005cf91ab041a486fc7ed03f4676f5" Name="Diagram1">
-        <EntityTypeShape EntityType="DBModel.Category" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Request" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Role" Width="1.5" PointX="1.5" PointY="14.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.SearchHelp" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Section" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Staff" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Status" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.User" Width="1.5" PointX="1.5" PointY="8.375" IsExpanded="true" />
-        <AssociationConnector Association="DBModel.FK_Request_Category" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_SearchHelp_Category1" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Section_Category" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Request_Staff" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Request_Status" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_User_Role" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_SearchHelp_Section1" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Staff_User" ManuallyRouted="false" />
+      <Diagram DiagramId="5945fcbe78494321bc8b6fcb8564b861" Name="Diagram1">
+        <EntityTypeShape EntityType="HDBDModel.Category" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HDBDModel.Request" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HDBDModel.Role" Width="1.5" PointX="1.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HDBDModel.SearchHelp" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="HDBDModel.Section" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HDBDModel.Staff" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HDBDModel.Status" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HDBDModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HDBDModel.User" Width="1.5" PointX="1.5" PointY="8.375" IsExpanded="true" />
+        <AssociationConnector Association="HDBDModel.FK_Request_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="HDBDModel.FK_SearchHelp_Category1" ManuallyRouted="false" />
+        <AssociationConnector Association="HDBDModel.FK_Section_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="HDBDModel.FK_Request_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="HDBDModel.FK_Request_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="HDBDModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="HDBDModel.FK_SearchHelp_Section1" ManuallyRouted="false" />
+        <AssociationConnector Association="HDBDModel.FK_Staff_User" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

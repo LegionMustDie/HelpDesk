@@ -1,5 +1,4 @@
-﻿using HelpDesk.FolderClass;
-using HelpDesk.FolderPage;
+﻿using HelpDesk.FolderData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,20 +11,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HelpDesk.FolderWindow.FolderStaff
+namespace HelpDesk.FolderPage.StaffPages
 {
     /// <summary>
-    /// Логика взаимодействия для StaffMainPage.xaml
+    /// Логика взаимодействия для OpenRequest.xaml
     /// </summary>
-    public partial class StaffMainPage : Window
+    public partial class OpenRequest : Page
     {
-        public StaffMainPage(Page page)
+        public OpenRequest(Request req)
         {
             InitializeComponent();
-            MainFrame.Navigate(page);
-
         }
     }
 }

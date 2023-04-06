@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using HelpDesk.FolderWindow.FolderStaff;
+using HelpDesk.FolderPage.StaffPages;
+using HelpDesk.FolderPage;
 
 namespace HelpDesk.FolderWindow
 {
@@ -90,15 +92,21 @@ namespace HelpDesk.FolderWindow
                         switch(user.IdRole)
                         {
                             case 1:
-                                ClassMessageBox.InfoMB("Авторизован");
+                                VariableClass.IdUser = user.IdUser;
+                                VariableClass.staff = DBEntities.GetContext().Staff.FirstOrDefault(c => c.IdUser == user.IdUser);
+                                new StaffMainPage(new RequestLits()).Show();
+                                Close();
                                 break;
                             case 2:
-                                ClassMessageBox.InfoMB("Авторизован");
+                                VariableClass.IdUser = user.IdUser;
+                                VariableClass.staff = DBEntities.GetContext().Staff.FirstOrDefault(c => c.IdUser == user.IdUser);
+                                new StaffMainPage(new RequestLits()).Show();
+                                Close();
                                 break;
                             case 3:
                                 VariableClass.IdUser = user.IdUser;
                                 VariableClass.staff = DBEntities.GetContext().Staff.FirstOrDefault(c => c.IdUser == user.IdUser);
-                                new StaffMainPage().Show();
+                                new StaffMainPage(new MainPageStaff()).Show();
                                 Close();
                                 break;
 

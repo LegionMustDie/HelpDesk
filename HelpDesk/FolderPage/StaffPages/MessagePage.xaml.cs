@@ -1,6 +1,4 @@
-﻿using HelpDesk.FolderClass;
-using HelpDesk.FolderPage;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,20 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HelpDesk.FolderWindow.FolderStaff
+namespace HelpDesk.FolderPage.StaffPages
 {
     /// <summary>
-    /// Логика взаимодействия для StaffMainPage.xaml
+    /// Логика взаимодействия для MessagePage.xaml
     /// </summary>
-    public partial class StaffMainPage : Window
+    public partial class MessagePage : Page
     {
-        public StaffMainPage(Page page)
+        public MessagePage()
         {
             InitializeComponent();
-            MainFrame.Navigate(page);
-
         }
     }
 }

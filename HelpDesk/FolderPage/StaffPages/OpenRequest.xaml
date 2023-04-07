@@ -5,10 +5,143 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HelpDesk.FolderPage.StaffPages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+     d:DesignHeight="780" d:DesignWidth="1320"
       Title="OpenRequest">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="160"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="290"/>
+            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnClose" Grid.Column="9"
+                Margin="142,0,2,0"
+                    Style="{DynamicResource AnotherCloseButton}"
+                    Click="btnClose_Click"  Cursor="Hand" Grid.ColumnSpan="2">
+            <Image Style="{StaticResource CloseImage}"/>
+        </Button>
+
+        <Label Content="Область проблемы:"
+               Grid.Row="1"
+               Grid.Column="1"
+               Grid.ColumnSpan="4"
+               Style="{DynamicResource MainText2}"
+               HorizontalContentAlignment="Left" Margin="0,0,44,0"/>
+
+        <TextBlock Text="{Binding Category.NameCategory}"
+                   Grid.Column="4"
+                   Grid.ColumnSpan="3"
+                   Grid.Row="1" Margin="10,0,0,0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="32"
+                   Style="{DynamicResource MaintextBlock}" Width="345"/>
+
+        <Label Content="Описание проблемы:"
+               Grid.Row="3"
+               Grid.Column="1"
+               Grid.ColumnSpan="5"
+               Style="{DynamicResource MainText}"
+               HorizontalContentAlignment="Left"/>
+
+        <Rectangle Grid.Row="4"
+              Grid.Column="1"
+              Grid.ColumnSpan="9"
+              Fill="#545454" Margin="0,0,0,44"
+              />
+
+        <TextBlock Name="tbText"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="9"
+                 Grid.Row="4"
+                 Style="{DynamicResource MaintextBlock}" 
+                 Margin="0,21,0,0"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Left" Cursor="IBeam"
+                 Padding="5" Width="1260" Height="298" Grid.RowSpan="3"
+                 Text="{Binding TextRequest}"/>
+
+        <Rectangle Grid.Row="6"
+              Grid.Column="1"
+              Grid.ColumnSpan="9"
+              Fill="#545454"
+              Margin="0,14,0,0"/>
+
+        <Button x:Name="ImageBtn"
+                Grid.Column="1"
+                Panel.ZIndex="1"
+                Grid.Row="7"
+                Style="{DynamicResource ImageBtn}" Margin="0,20,40,20">
+            <Button.Content>
+                <Image
+                      x:Name="PhotoStaff"
+                      Height="116" Width="116"/>
+            </Button.Content>
+        </Button>
+
+        <Button x:Name="ImageBtnTwo"
+                
+                Grid.Column="3"
+                Grid.Row="7"
+                Panel.ZIndex="1"
+                Style="{DynamicResource ImageBtn}" 
+                Margin="0,20,40,20">
+            <Button.Content>
+                <Image
+                      x:Name="PhotoStaffTwo"
+                       Height="116" Width="116"
+                       Source="{Binding ImageOne}"/>
+            </Button.Content>
+        </Button>
+
+        <Button x:Name="ImageBtnThree"
+                
+                Grid.Column="5"
+                Panel.ZIndex="1"
+                Grid.Row="7"
+                Style="{DynamicResource ImageBtn}" Margin="0,20,40,20">
+            <Button.Content>
+                <Image
+                      x:Name="PhotoStaffThree"
+                       Height="116" Width="116"/>
+            </Button.Content>
+        </Button>
+
+        <Button Name="btnSend"
+                Grid.Column="9"
+                Grid.Row="9" 
+                Style="{DynamicResource MainButton}" Margin="0,0,0,0"
+                Content="Отправить"
+                Click="btnSend_Click"/>
+
+        <Button Name="btnBack"
+                Grid.Column="7"
+                Grid.Row="9" 
+                Style="{DynamicResource SecondaryButton}" Margin="0,0,0,0"
+                Content="Назад" Cursor="Hand"
+                Click="btnBack_Click"/>
     </Grid>
 </Page>

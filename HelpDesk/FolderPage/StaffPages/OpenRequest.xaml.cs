@@ -24,6 +24,22 @@ namespace HelpDesk.FolderPage.StaffPages
         public OpenRequest(Request req)
         {
             InitializeComponent();
+            DataContext = req;
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSend_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

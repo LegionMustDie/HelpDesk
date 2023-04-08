@@ -17,7 +17,7 @@ namespace HelpDesk.FolderData
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Category()
         {
-            this.Request = new HashSet<Request>();
+            this.RequestStaff = new HashSet<RequestStaff>();
             this.SearchHelp = new HashSet<SearchHelp>();
             this.Section = new HashSet<Section>();
         }
@@ -26,7 +26,7 @@ namespace HelpDesk.FolderData
         public string NameCategory { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Request> Request { get; set; }
+        public virtual ICollection<RequestStaff> RequestStaff { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SearchHelp> SearchHelp { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

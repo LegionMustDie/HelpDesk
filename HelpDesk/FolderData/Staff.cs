@@ -17,7 +17,7 @@ namespace HelpDesk.FolderData
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Staff()
         {
-            this.Request = new HashSet<Request>();
+            this.RequestStaff = new HashSet<RequestStaff>();
         }
     
         public int IdStaff { get; set; }
@@ -28,7 +28,7 @@ namespace HelpDesk.FolderData
         public string Email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Request> Request { get; set; }
+        public virtual ICollection<RequestStaff> RequestStaff { get; set; }
         public virtual User User { get; set; }
     }
 }

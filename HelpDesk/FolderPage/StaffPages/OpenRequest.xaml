@@ -8,6 +8,10 @@
      d:DesignHeight="780" d:DesignWidth="1320"
       Title="OpenRequest">
 
+    <Page.Resources>
+        <local:VisibilityConverter x:Key="VisibilityConverter" />
+    </Page.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -53,11 +57,11 @@
         <TextBlock Text="{Binding Category.NameCategory}"
                    Grid.Column="4"
                    Grid.ColumnSpan="3"
-                   Grid.Row="1" Margin="10,0,0,0"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
+                   Grid.Row="1"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
                    FontSize="32"
-                   Style="{DynamicResource MaintextBlock}" Width="345"/>
+                   Style="{DynamicResource MaintextBlock}" Width="344" Margin="11,0,0,8"/>
 
         <Label Content="Описание проблемы:"
                Grid.Row="3"
@@ -94,16 +98,22 @@
                 Grid.Column="1"
                 Panel.ZIndex="1"
                 Grid.Row="7"
-                Style="{DynamicResource ImageBtn}" Margin="0,20,40,20">
+                Style="{DynamicResource ImageBtn}" 
+                Margin="0,20,40,20">
             <Button.Content>
                 <Image
-                      x:Name="PhotoStaff"
+                      x:Name="PhotoStaffOne"
+                      Source="{Binding ImageOne}"
                       Height="116" Width="116"/>
             </Button.Content>
+            <Button.Visibility>
+                <MultiBinding Converter="{StaticResource VisibilityConverter}">
+                    <Binding Path="ImageOne"/>
+                </MultiBinding>
+            </Button.Visibility>
         </Button>
 
         <Button x:Name="ImageBtnTwo"
-                
                 Grid.Column="3"
                 Grid.Row="7"
                 Panel.ZIndex="1"
@@ -113,8 +123,13 @@
                 <Image
                       x:Name="PhotoStaffTwo"
                        Height="116" Width="116"
-                       Source="{Binding ImageOne}"/>
+                       Source="{Binding ImageTwo}"/>
             </Button.Content>
+            <Button.Visibility>
+                <MultiBinding Converter="{StaticResource VisibilityConverter}">
+                    <Binding Path="ImageTwo"/>
+                </MultiBinding>
+            </Button.Visibility>
         </Button>
 
         <Button x:Name="ImageBtnThree"
@@ -122,12 +137,19 @@
                 Grid.Column="5"
                 Panel.ZIndex="1"
                 Grid.Row="7"
-                Style="{DynamicResource ImageBtn}" Margin="0,20,40,20">
+                Style="{DynamicResource ImageBtn}" 
+                Margin="0,20,40,20">
             <Button.Content>
                 <Image
                       x:Name="PhotoStaffThree"
+                     Source="{Binding ImageThree}"
                        Height="116" Width="116"/>
             </Button.Content>
+            <Button.Visibility>
+                <MultiBinding Converter="{StaticResource VisibilityConverter}">
+                    <Binding Path="ImageThree"/>
+                </MultiBinding>
+            </Button.Visibility>
         </Button>
 
         <Button Name="btnSend"

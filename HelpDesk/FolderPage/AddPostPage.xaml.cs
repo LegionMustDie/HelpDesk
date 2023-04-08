@@ -25,8 +25,6 @@ namespace HelpDesk.FolderPage
     /// </summary>
     public partial class AddPostPage : Page
     {
-        Status status;
-        Request request_per;
         private byte[] _imageBytes = null;
         private byte[] imageBytesForPhoto2 = null;
         private byte[] imageBytesForPhoto3 = null;
@@ -104,7 +102,7 @@ namespace HelpDesk.FolderPage
             {
                 try
                 {
-                    Request request = new Request()
+                    RequestStaff request = new RequestStaff()
                     {
                         IdCategory = VariableClass.IdCategory,
                         IdStaff = VariableClass.staff.IdStaff,
@@ -114,7 +112,7 @@ namespace HelpDesk.FolderPage
                         ImageTwo = imageBytesForPhoto2,
                         ImageThree = imageBytesForPhoto3,
                     };
-                    DBEntities.GetContext().Request.Add(request);
+                    DBEntities.GetContext().RequestStaff.Add(request);
                     DBEntities.GetContext().SaveChanges();
                     ClassMessageBox.InfoMB("Запрос был отправлен поддержке. " +
                         "Ответ придет в скором времени на почту.");

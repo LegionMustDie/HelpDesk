@@ -17,13 +17,13 @@ namespace HelpDesk.FolderData
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Status()
         {
-            this.Request = new HashSet<Request>();
+            this.RequestStaff = new HashSet<RequestStaff>();
         }
     
         public int IdStatus { get; set; }
         public string NameStatus { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Request> Request { get; set; }
+        public virtual ICollection<RequestStaff> RequestStaff { get; set; }
     }
 }

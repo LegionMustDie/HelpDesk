@@ -26,7 +26,7 @@ namespace HelpDesk.FolderData
         }
     
         public virtual DbSet<Category> Category { get; set; }
-        public virtual DbSet<Request> Request { get; set; }
+        public virtual DbSet<RequestStaff> RequestStaff { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<SearchHelp> SearchHelp { get; set; }
         public virtual DbSet<Section> Section { get; set; }

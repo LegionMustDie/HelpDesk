@@ -12,7 +12,7 @@ namespace HelpDesk.FolderData
     using System;
     using System.Collections.Generic;
     
-    public partial class Request
+    public partial class RequestStaff
     {
         public int IdRequest { get; set; }
         public int IdCategory { get; set; }

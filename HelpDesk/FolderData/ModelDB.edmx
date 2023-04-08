@@ -12,7 +12,7 @@
           <Property Name="IdCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameCategory" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="Request">
+        <EntityType Name="RequestStaff">
           <Key>
             <PropertyRef Name="IdRequest" />
           </Key>
@@ -88,36 +88,36 @@
         </EntityType>
         <Association Name="FK_Request_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
-          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <End Role="RequestStaff" Type="Self.RequestStaff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
               <PropertyRef Name="IdCategory" />
             </Principal>
-            <Dependent Role="Request">
+            <Dependent Role="RequestStaff">
               <PropertyRef Name="IdCategory" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Request_Staff">
           <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
-          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <End Role="RequestStaff" Type="Self.RequestStaff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Staff">
               <PropertyRef Name="IdStaff" />
             </Principal>
-            <Dependent Role="Request">
+            <Dependent Role="RequestStaff">
               <PropertyRef Name="IdStaff" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Request_Status">
           <End Role="Status" Type="Self.Status" Multiplicity="1" />
-          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <End Role="RequestStaff" Type="Self.RequestStaff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Status">
               <PropertyRef Name="IdStatus" />
             </Principal>
-            <Dependent Role="Request">
+            <Dependent Role="RequestStaff">
               <PropertyRef Name="IdStatus" />
             </Dependent>
           </ReferentialConstraint>
@@ -184,7 +184,7 @@
         </Association>
         <EntityContainer Name="Хранилище HDBDModelContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Request" EntityType="Self.Request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RequestStaff" EntityType="Self.RequestStaff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SearchHelp" EntityType="Self.SearchHelp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Section" EntityType="Self.Section" Schema="dbo" store:Type="Tables" />
@@ -194,15 +194,15 @@
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Request_Category" Association="Self.FK_Request_Category">
             <End Role="Category" EntitySet="Category" />
-            <End Role="Request" EntitySet="Request" />
+            <End Role="RequestStaff" EntitySet="RequestStaff" />
           </AssociationSet>
           <AssociationSet Name="FK_Request_Staff" Association="Self.FK_Request_Staff">
             <End Role="Staff" EntitySet="Staff" />
-            <End Role="Request" EntitySet="Request" />
+            <End Role="RequestStaff" EntitySet="RequestStaff" />
           </AssociationSet>
           <AssociationSet Name="FK_Request_Status" Association="Self.FK_Request_Status">
             <End Role="Status" EntitySet="Status" />
-            <End Role="Request" EntitySet="Request" />
+            <End Role="RequestStaff" EntitySet="RequestStaff" />
           </AssociationSet>
           <AssociationSet Name="FK_SearchHelp_Category1" Association="Self.FK_SearchHelp_Category1">
             <End Role="Category" EntitySet="Category" />
@@ -236,11 +236,11 @@
           </Key>
           <Property Name="IdCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Request" Relationship="Self.FK_Request_Category" FromRole="Category" ToRole="Request" />
+          <NavigationProperty Name="RequestStaff" Relationship="Self.FK_Request_Category" FromRole="Category" ToRole="RequestStaff" />
           <NavigationProperty Name="SearchHelp" Relationship="Self.FK_SearchHelp_Category1" FromRole="Category" ToRole="SearchHelp" />
           <NavigationProperty Name="Section" Relationship="Self.FK_Section_Category" FromRole="Category" ToRole="Section" />
         </EntityType>
-        <EntityType Name="Request">
+        <EntityType Name="RequestStaff">
           <Key>
             <PropertyRef Name="IdRequest" />
           </Key>
@@ -252,9 +252,9 @@
           <Property Name="ImageTwo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ImageThree" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="IdStatus" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Category" Relationship="Self.FK_Request_Category" FromRole="Request" ToRole="Category" />
-          <NavigationProperty Name="Staff" Relationship="Self.FK_Request_Staff" FromRole="Request" ToRole="Staff" />
-          <NavigationProperty Name="Status" Relationship="Self.FK_Request_Status" FromRole="Request" ToRole="Status" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Request_Category" FromRole="RequestStaff" ToRole="Category" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_Request_Staff" FromRole="RequestStaff" ToRole="Staff" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_Request_Status" FromRole="RequestStaff" ToRole="Status" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -295,7 +295,7 @@
           <Property Name="Patronymic" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
           <Property Name="IdUser" Type="Int32" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Request" Relationship="Self.FK_Request_Staff" FromRole="Staff" ToRole="Request" />
+          <NavigationProperty Name="RequestStaff" Relationship="Self.FK_Request_Staff" FromRole="Staff" ToRole="RequestStaff" />
           <NavigationProperty Name="User" Relationship="Self.FK_Staff_User" FromRole="Staff" ToRole="User" />
         </EntityType>
         <EntityType Name="Status">
@@ -304,7 +304,7 @@
           </Key>
           <Property Name="IdStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameStatus" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Request" Relationship="Self.FK_Request_Status" FromRole="Status" ToRole="Request" />
+          <NavigationProperty Name="RequestStaff" Relationship="Self.FK_Request_Status" FromRole="Status" ToRole="RequestStaff" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -329,12 +329,12 @@
         </EntityType>
         <Association Name="FK_Request_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
-          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <End Role="RequestStaff" Type="Self.RequestStaff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
               <PropertyRef Name="IdCategory" />
             </Principal>
-            <Dependent Role="Request">
+            <Dependent Role="RequestStaff">
               <PropertyRef Name="IdCategory" />
             </Dependent>
           </ReferentialConstraint>
@@ -365,24 +365,24 @@
         </Association>
         <Association Name="FK_Request_Staff">
           <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
-          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <End Role="RequestStaff" Type="Self.RequestStaff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Staff">
               <PropertyRef Name="IdStaff" />
             </Principal>
-            <Dependent Role="Request">
+            <Dependent Role="RequestStaff">
               <PropertyRef Name="IdStaff" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Request_Status">
           <End Role="Status" Type="Self.Status" Multiplicity="1" />
-          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <End Role="RequestStaff" Type="Self.RequestStaff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Status">
               <PropertyRef Name="IdStatus" />
             </Principal>
-            <Dependent Role="Request">
+            <Dependent Role="RequestStaff">
               <PropertyRef Name="IdStatus" />
             </Dependent>
           </ReferentialConstraint>
@@ -425,7 +425,7 @@
         </Association>
         <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Category" EntityType="Self.Category" />
-          <EntitySet Name="Request" EntityType="Self.Request" />
+          <EntitySet Name="RequestStaff" EntityType="Self.RequestStaff" />
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="SearchHelp" EntityType="Self.SearchHelp" />
           <EntitySet Name="Section" EntityType="Self.Section" />
@@ -435,7 +435,7 @@
           <EntitySet Name="User" EntityType="Self.User" />
           <AssociationSet Name="FK_Request_Category" Association="Self.FK_Request_Category">
             <End Role="Category" EntitySet="Category" />
-            <End Role="Request" EntitySet="Request" />
+            <End Role="RequestStaff" EntitySet="RequestStaff" />
           </AssociationSet>
           <AssociationSet Name="FK_SearchHelp_Category1" Association="Self.FK_SearchHelp_Category1">
             <End Role="Category" EntitySet="Category" />
@@ -447,11 +447,11 @@
           </AssociationSet>
           <AssociationSet Name="FK_Request_Staff" Association="Self.FK_Request_Staff">
             <End Role="Staff" EntitySet="Staff" />
-            <End Role="Request" EntitySet="Request" />
+            <End Role="RequestStaff" EntitySet="RequestStaff" />
           </AssociationSet>
           <AssociationSet Name="FK_Request_Status" Association="Self.FK_Request_Status">
             <End Role="Status" EntitySet="Status" />
-            <End Role="Request" EntitySet="Request" />
+            <End Role="RequestStaff" EntitySet="RequestStaff" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
             <End Role="Role" EntitySet="Role" />
@@ -480,9 +480,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Request">
-            <EntityTypeMapping TypeName="HDBDModel.Request">
-              <MappingFragment StoreEntitySet="Request">
+          <EntitySetMapping Name="RequestStaff">
+            <EntityTypeMapping TypeName="HDBDModel.RequestStaff">
+              <MappingFragment StoreEntitySet="RequestStaff">
                 <ScalarProperty Name="IdRequest" ColumnName="IdRequest" />
                 <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
                 <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />

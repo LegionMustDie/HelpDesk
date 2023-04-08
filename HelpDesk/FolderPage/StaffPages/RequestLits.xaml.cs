@@ -41,7 +41,7 @@ namespace HelpDesk.FolderPage.StaffPages
 
         private void dgRequest_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Request req = dgRequest.SelectedItem as Request;
+            RequestStaff req = dgRequest.SelectedItem as RequestStaff;
             if (req != null)
             {
                 NavigationService.Navigate(new OpenRequest(req));
@@ -65,7 +65,7 @@ namespace HelpDesk.FolderPage.StaffPages
 
         private void LoadData()
         {
-            var query = DBEntities.GetContext().Request.Where(x => x.IdStatus == 1 ||
+            var query = DBEntities.GetContext().RequestStaff.Where(x => x.IdStatus == 1 ||
             x.IdStatus == 2).OrderBy(x => x.IdRequest);
 
             pageCount = (int)Math.Ceiling((double)query.Count() / pageSize);

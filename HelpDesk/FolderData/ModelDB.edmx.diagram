@@ -4,9 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5945fcbe78494321bc8b6fcb8564b861" Name="Diagram1">
+      <Diagram DiagramId="1afb83946ccb4588a3df15403f182a37" Name="Diagram1">
         <EntityTypeShape EntityType="HDBDModel.Category" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HDBDModel.Request" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HDBDModel.RequestStaff" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="HDBDModel.Role" Width="1.5" PointX="1.5" PointY="14.625" IsExpanded="true" />
         <EntityTypeShape EntityType="HDBDModel.SearchHelp" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="HDBDModel.Section" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />

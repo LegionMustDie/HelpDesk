@@ -12,6 +12,7 @@ namespace HelpDesk.FolderClass
         public static int IdCategory { get; set; }
         public static int IdUser { get; set; }
         public static Staff staff { get; set; }
+        public static RequestStaff req { get; set; }
         public static string SelectedFileName { get; set; }
         public byte[] ImageData { get; set; }
         public static bool IsAccepted { get; set; }

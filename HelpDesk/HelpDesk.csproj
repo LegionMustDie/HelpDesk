@@ -310,7 +310,9 @@
     <Content Include="FolderSite\css\style.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="FolderSite\html\actuallyerrors.html" />
+    <Content Include="FolderSite\html\actuallyerrors.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="FolderSite\html\spravka.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

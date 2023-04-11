@@ -63,7 +63,8 @@
                   Grid.Row="3"
     
                   Style="{DynamicResource MainTextBox}" 
-                  Height="50" VerticalAlignment="Top" Cursor="Hand" Margin="0,0,0,0"/>
+                  Height="50" VerticalAlignment="Top" 
+                  Cursor="IBeam" Margin="0,0,0,0"/>
 
         <TextBox Name="tbText"
                  Grid.Column="1"

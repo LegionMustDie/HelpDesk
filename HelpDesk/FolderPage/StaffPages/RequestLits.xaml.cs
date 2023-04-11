@@ -20,7 +20,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.Runtime.Remoting.Contexts;
-
+using System.Diagnostics;
 
 namespace HelpDesk.FolderPage.StaffPages
 {
@@ -145,41 +145,40 @@ namespace HelpDesk.FolderPage.StaffPages
             Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
             Microsoft.Office.Interop.Excel.Workbook workbook = app.Workbooks.Add();
             Microsoft.Office.Interop.Excel.Worksheet worksheet = workbook.ActiveSheet;
-            worksheet.Name = "Отчет";
-            for (int i = 0; i < dgRequest.Columns.Count; i++)
-            {
-                worksheet.Cells[1, i + 1] = dgRequest.Columns[i].Header;
-            }
-            // Заполнение данными таблицы
-            for (int i = 0; i < dgRequest.Items.Count; i++)
-            {
-                // Получение строки данных таблицы
-                DataGridRow dataGridRow = dgRequest.ItemContainerGenerator.ContainerFromIndex(i) as DataGridRow;
+            var data = DBEntities.GetContext().RequestStaff.ToList();
+            app.Visible = true;
+            
+            // Заполняем заголовки столбцов
+            worksheet.Cells[1, 1] = "Номер заявки";
+            worksheet.Cells[1, 2] = "Категория";
+            worksheet.Cells[1, 3] = "Отправитель";
+            worksheet.Cells[1, 4] = "Статус";
 
-                // Получение данных из столбцов
-                for (int j = 0; j < dgRequest.Columns.Count; j++)
-                {
-                    TextBlock textBlock = dgRequest.Columns[j].GetCellContent(dataGridRow) as TextBlock;
-                    worksheet.Cells[i + 2, j + 1] = textBlock.Text;
-                }
+            // Заполняем данные
+            for (int i = 0; i < data.Count; i++)
+            {
+                worksheet.Cells[i + 2, 1] = data[i].IdRequest;
+                worksheet.Cells[i + 2, 2] = data[i].Category.NameCategory;
+                worksheet.Cells[i + 2, 3] = data[i].Staff.Email;
+                worksheet.Cells[i + 2, 4] = data[i].Status.NameStatus;
             }
 
-            // Сохранение и закрытие Excel
-            string fileName = "Отчет_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + ".xlsx";
-            workbook.SaveAs(fileName);
+            // Сохраняем книгу Excel
+            workbook.SaveAs("Отчет.xlsx");
+
+            // Закрываем книгу и приложение Excel
+            workbook.Close();
             app.Quit();
-
-            // Освобождение объектов Excel
-            releaseObject(worksheet);
-            releaseObject(workbook);
-            releaseObject(app);
-
-            ClassMessageBox.InfoMB("Экспорт данных таблицы DataGrid выполнен успешно.");
+            ClassMessageBox.InfoMB("Отчет готов.");
         }
 
         private void btnNews_Click(object sender, RoutedEventArgs e)
         {
-
+            var path =
+                System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "FolderSite", "html", "actuallyerrors.html");
+            var process = new Process();
+            process.StartInfo.FileName = path;
+            process.Start();
         }
 
         private void btnMessage_Click(object sender, RoutedEventArgs e)
@@ -191,24 +190,6 @@ namespace HelpDesk.FolderPage.StaffPages
         private void btnReboot_Click(object sender, RoutedEventArgs e)
         {
             LiveList();
-        }
-
-        private void releaseObject(object obj)
-        {
-            try
-            {
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
-                obj = null;
-            }
-            catch (Exception ex)
-            {
-                obj = null;
-                MessageBox.Show("Не удалось освободить объект Excel : " + ex.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            finally
-            {
-                GC.Collect();
-            }
         }
 
         private void StelsButton()

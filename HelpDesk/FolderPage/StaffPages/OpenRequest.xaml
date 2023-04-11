@@ -47,6 +47,14 @@
             <Image Style="{StaticResource CloseImage}"/>
         </Button>
 
+        <Button x:Name="btnDelete" Grid.Column="6"
+                Grid.Row="9"
+                    Style="{DynamicResource DeleteButton}"
+                    Click="btnDelete_Click" Margin="189,0,20,0">
+            <Image Source="/FolderDictionary/FolderImage/delete.png" 
+                   Height="43" Width="43" />
+        </Button>
+
         <Label Content="Область проблемы:"
                Grid.Row="1"
                Grid.Column="1"

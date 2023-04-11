@@ -26,11 +26,13 @@ namespace HelpDesk.FolderPage.StaffPages
     /// </summary>
     public partial class OpenRequest : Page
     {
-        
+        RequestStaff reqstaff;
         public OpenRequest(RequestStaff req)
         {
             InitializeComponent();
             DataContext = req;
+            this.reqstaff = req;
+            VariableClass.reqst = req;
             ImageBtn.Click += (s, e) => OpenImage(req.ImageOne);
             ImageBtnTwo.Click += (s, e) => OpenImage(req.ImageTwo);
             ImageBtnThree.Click += (s, e) => OpenImage(req.ImageThree);
@@ -39,17 +41,22 @@ namespace HelpDesk.FolderPage.StaffPages
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-
+            ClassMessageBox.ExitMB();
         }
 
         private void btnSend_Click(object sender, RoutedEventArgs e)
         {
-
+            MessagePage mspage = new MessagePage();
+            mspage.tbAddress.Text = reqstaff.Staff.Email;
+            reqstaff.IdStatus = 2;
+            DBEntities.GetContext().SaveChanges();
+            VariableClass.protectthis = 1;
+            NavigationService.Navigate(mspage);
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new RequestLits());
         }
 
         private void OpenImage(byte[] imageData)
@@ -68,6 +75,14 @@ namespace HelpDesk.FolderPage.StaffPages
             window.Background = new ImageBrush(image);
             window.MouseDown += (sender, args) => window.Close();
             window.Show();
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            reqstaff.IdStatus = 4;
+            DBEntities.GetContext().SaveChanges();
+            ClassMessageBox.InfoMB("Запрос удален.");
+            NavigationService.Navigate(new RequestLits());
         }
     }
 }

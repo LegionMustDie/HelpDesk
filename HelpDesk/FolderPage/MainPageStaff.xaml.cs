@@ -1,6 +1,8 @@
 ﻿using HelpDesk.FolderClass;
 using HelpDesk.FolderData;
 using HelpDesk.FolderPage.Section;
+using HelpDesk.FolderWindow;
+using HelpDesk.FolderWindow.FolderStaff;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
@@ -47,6 +49,11 @@ namespace HelpDesk.FolderPage
 
         private void tbSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            SearchProtocol();
+        }
+
+        public void SearchProtocol()
+        {
             if (tbSearch.SelectedItem != null)
             {
                 var item = tbSearch.SelectedItem as SearchHelp;
@@ -57,7 +64,8 @@ namespace HelpDesk.FolderPage
                         NavigationService.Navigate(new AccSection());
                         break;
                     case 8:
-                        Process.Start("C:\\Users\\thesk\\Desktop\\Проекты\\Проекты C#\\Диплом\\Сайты\\html\\spravka.html");
+                        AccSection acc = new AccSection();
+                        acc.SiteOppener();
                         break;
                     default:
                         ClassMessageBox.InfoMB("Страница в разработке");
@@ -79,6 +87,16 @@ namespace HelpDesk.FolderPage
             else
             {
                 tbSearch.ItemsSource = DBEntities.GetContext().SearchHelp.ToList();
+            }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            bool Result = ClassMessageBox.QuestionMB("Уже уходите?");
+            if (Result == true)
+            {
+                StaffMainPage mainPage = (StaffMainPage)Window.GetWindow(this);
+                mainPage.CloseWin();
             }
         }
     }

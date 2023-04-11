@@ -18,6 +18,7 @@ using System.Net;
 using System.Runtime.Remoting.Contexts;
 using System.Runtime.Remoting.Messaging;
 using System.Xml.Linq;
+using HelpDesk.FolderData;
 
 namespace HelpDesk.FolderPage.StaffPages
 {
@@ -26,12 +27,65 @@ namespace HelpDesk.FolderPage.StaffPages
     /// </summary>
     public partial class MessagePage : Page
     {
+        RequestStaff requestStaff;
+        
         public MessagePage()
         {
             InitializeComponent();
+            requestStaff = VariableClass.reqst;
         }
 
         private void btnSend_Click(object sender, RoutedEventArgs e)
+        {
+            MessageSwap();
+        }
+
+        private void MessageSwap()
+        {
+            switch(VariableClass.protectthis)
+            {
+                case 0:
+                    MailProcces();
+                    break;
+                    case 1:
+                    requestStaff.IdStatus = 3;
+                    DBEntities.GetContext().SaveChanges();
+                    MailProcces();
+                    break;
+            }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            switch (VariableClass.protectthis)
+            {
+                case 0:
+                    NavigationService.GoBack();
+                    break;
+                case 1:
+                    requestStaff.IdStatus = 1;
+                    DBEntities.GetContext().SaveChanges();
+                    NavigationService.Navigate(new OpenRequest(requestStaff));
+                    break;
+            }
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            switch (VariableClass.protectthis)
+            {
+                case 0:
+                    ClassMessageBox.ExitMB();
+                    break;
+                case 1:
+                    requestStaff.IdStatus = 1;
+                    DBEntities.GetContext().SaveChanges();
+                    ClassMessageBox.ExitMB();
+                    break;
+            }
+        }
+
+        private void MailProcces()
         {
             var ipsender = VariableClass.staff.Email;
 
@@ -45,25 +99,12 @@ namespace HelpDesk.FolderPage.StaffPages
                 client.EnableSsl = true;
                 client.UseDefaultCredentials = false;
                 client.Credentials = new NetworkCredential(ipsender, "ivdwddzgxcgktnht");
-              
+
 
                 client.Send(message);
                 ClassMessageBox.InfoMB("Сообщение отправлено.");
-                NavigationService.GoBack();
+                NavigationService.Navigate(new RequestLits());
             }
-
-
-
-        }
-
-        private void btnBack_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.GoBack();
-        }
-
-        private void btnClose_Click(object sender, RoutedEventArgs e)
-        {
-            ClassMessageBox.ExitMB();
         }
     }
 }

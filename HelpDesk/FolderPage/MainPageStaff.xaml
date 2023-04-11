@@ -50,7 +50,25 @@
         </Button>
 
         <Image Style="{DynamicResource Logo}"
-                   Grid.Column="9" Margin="2,20,2,47" Grid.RowSpan="2"/>
+               Grid.Column="9" Margin="2,20,2,47" 
+               Grid.RowSpan="2"/>
+
+        <Button x:Name="btnBack"
+                Grid.ColumnSpan="2" Margin="0,0,73,36"
+                Style="{DynamicResource BackButton}" Cursor="Hand"
+                Click="btnBack_Click">
+            <Image Style="{StaticResource BackImage}" 
+                   RenderTransformOrigin="0.5,0.5" Height="25" Width="30" Cursor="">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
 
         <Label Content="Какая проблема у вас возникла?"
                    Style="{DynamicResource MainText2}"

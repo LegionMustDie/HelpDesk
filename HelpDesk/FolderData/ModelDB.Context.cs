@@ -32,7 +32,6 @@ namespace HelpDesk.FolderData
         public virtual DbSet<Section> Section { get; set; }
         public virtual DbSet<Staff> Staff { get; set; }
         public virtual DbSet<Status> Status { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

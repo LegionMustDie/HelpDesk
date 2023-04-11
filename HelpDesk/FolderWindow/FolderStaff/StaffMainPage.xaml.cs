@@ -25,7 +25,12 @@ namespace HelpDesk.FolderWindow.FolderStaff
         {
             InitializeComponent();
             MainFrame.Navigate(page);
+        }
 
+        public void CloseWin()
+        {
+            new AutorizationWindow().Show();
+            Close();
         }
     }
 }

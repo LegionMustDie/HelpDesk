@@ -37,7 +37,16 @@ namespace HelpDesk.FolderPage.Section
 
         private void btnRecovery_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("C:\\Users\\thesk\\Downloads\\Диплом (2)\\Диплом\\Сайты\\html\\spravka.html");
+            SiteOppener();
+        }
+
+        public void SiteOppener()
+        {
+            var path =
+                System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "FolderSite", "html", "spravka.html");
+            var process = new Process();
+            process.StartInfo.FileName = path;
+            process.Start();
         }
 
         private void btnSupport_Click(object sender, RoutedEventArgs e)
@@ -56,8 +65,8 @@ namespace HelpDesk.FolderPage.Section
                     case 1:
                         NavigationService.Navigate(new AccSection());
                         break;
-                    case 9:
-                        Process.Start("C:\\Users\\thesk\\Downloads\\Диплом (2)\\Диплом\\Сайты\\html\\spravka.html");
+                    case 8:
+                        SiteOppener();
                         break;
                     default:
                         ClassMessageBox.InfoMB("Страница в разработке");

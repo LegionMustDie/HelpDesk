@@ -35,7 +35,7 @@ namespace HelpDesk.FolderPage.StaffPages
         public RequestLits()
         {
             InitializeComponent();
-            LoadData();
+            LiveList();
             StelsButton();
         }
 
@@ -51,7 +51,7 @@ namespace HelpDesk.FolderPage.StaffPages
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
             pageNumber++;
-            LoadData();
+            LiveList();
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -59,7 +59,7 @@ namespace HelpDesk.FolderPage.StaffPages
             if (pageNumber > 0)
             {
                 pageNumber--;
-                LoadData();
+                LiveList();
             }
         }
 
@@ -95,6 +95,44 @@ namespace HelpDesk.FolderPage.StaffPages
                 .ToList();
 
             dgRequest.ItemsSource = data;
+        }
+
+        private void AnotherLoadData()
+        {
+            var query = DBEntities.GetContext().RequestStaff.OrderBy(x => x.IdRequest);
+            pageCount = (int)Math.Ceiling((double)query.Count() / pageSize);
+            if (pageNumber >= pageCount - 1)
+            {
+                pageNumber = pageCount - 1;
+                btnNext.IsEnabled = false;
+            }
+            else
+            {
+                btnNext.IsEnabled = true;
+            }
+            if (pageNumber == 0)
+            {
+                btnBack.IsEnabled = false;
+            }
+            else
+            {
+                btnBack.IsEnabled = true;
+            }
+            var data = query.Skip(pageNumber * pageSize).Take(pageSize).ToList();
+            dgRequest.ItemsSource = data;
+        }
+
+        private void LiveList()
+        {
+            switch(VariableClass.staff.User.IdRole)
+            {
+                case 1:
+                    AnotherLoadData();
+                    break;
+                case 2:
+                    LoadData();
+                    break;
+            }
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -146,12 +184,13 @@ namespace HelpDesk.FolderPage.StaffPages
 
         private void btnMessage_Click(object sender, RoutedEventArgs e)
         {
+            VariableClass.protectthis = 0;
             NavigationService.Navigate(new MessagePage());
         }
 
         private void btnReboot_Click(object sender, RoutedEventArgs e)
         {
-            LoadData();
+            LiveList();
         }
 
         private void releaseObject(object obj)

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1afb83946ccb4588a3df15403f182a37" Name="Diagram1">
+      <Diagram DiagramId="72189cdc50cd4be9b19bcb6b4ed2db89" Name="Diagram1">
         <EntityTypeShape EntityType="HDBDModel.Category" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="HDBDModel.RequestStaff" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="HDBDModel.Role" Width="1.5" PointX="1.5" PointY="14.625" IsExpanded="true" />
@@ -12,7 +12,6 @@
         <EntityTypeShape EntityType="HDBDModel.Section" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
         <EntityTypeShape EntityType="HDBDModel.Staff" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="HDBDModel.Status" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HDBDModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HDBDModel.User" Width="1.5" PointX="1.5" PointY="8.375" IsExpanded="true" />
         <AssociationConnector Association="HDBDModel.FK_Request_Category" ManuallyRouted="false" />
         <AssociationConnector Association="HDBDModel.FK_SearchHelp_Category1" ManuallyRouted="false" />

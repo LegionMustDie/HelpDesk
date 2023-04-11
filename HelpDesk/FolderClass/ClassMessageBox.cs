@@ -1,4 +1,7 @@
-﻿using HelpDesk.FolderWindow.FolderMB;
+﻿using HelpDesk.FolderPage;
+using HelpDesk.FolderWindow;
+using HelpDesk.FolderWindow.FolderMB;
+using HelpDesk.FolderWindow.FolderStaff;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -6,8 +6,10 @@ using HelpDesk.FolderWindow.FolderStaff;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -29,11 +31,17 @@ namespace HelpDesk.FolderPage
     public partial class MainPageStaff : Page
     {
         public int i = 0;
-        
+
         public MainPageStaff()
         {
             InitializeComponent();
             tbSearch.ItemsSource = DBEntities.GetContext().SearchHelp.ToList();
+            btnDevice.Click += (s, e) => InProgreccMessage();
+            btnAccess.Click += (s, e) => InProgreccMessage();
+            btnSoftware.Click += (s, e) => InProgreccMessage();
+            btnProduct.Click += (s, e) => InProgreccMessage();
+            btnDoc.Click += (s, e) => InProgreccMessage();
+            btnOther.Click += (s, e) => InProgreccMessage();
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -74,11 +82,11 @@ namespace HelpDesk.FolderPage
             }
         }
 
-        private void tbSearch_TextInput(object sender, TextCompositionEventArgs e)
+        private async void tbSearch_TextInput(object sender, TextCompositionEventArgs e)
         {
             var searchValue = tbSearch.Text.ToLower();
 
-            var categories = DBEntities.GetContext().SearchHelp.Where(c => c.Name.ToLower().Contains(searchValue)).ToList();
+            var categories = await DBEntities.GetContext().SearchHelp.Where(c => c.Name.ToLower().Contains(searchValue)).ToListAsync();
 
             if (categories != null && categories.Count > 0)
             {
@@ -86,7 +94,7 @@ namespace HelpDesk.FolderPage
             }
             else
             {
-                tbSearch.ItemsSource = DBEntities.GetContext().SearchHelp.ToList();
+                tbSearch.ItemsSource = await DBEntities.GetContext().SearchHelp.ToListAsync();
             }
         }
 
@@ -98,6 +106,11 @@ namespace HelpDesk.FolderPage
                 StaffMainPage mainPage = (StaffMainPage)Window.GetWindow(this);
                 mainPage.CloseWin();
             }
+        }
+
+        public void InProgreccMessage()
+        {
+            ClassMessageBox.InfoMB("Данный модуль в разработке");
         }
     }
 }

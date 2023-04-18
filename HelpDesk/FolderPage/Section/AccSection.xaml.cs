@@ -3,6 +3,7 @@ using HelpDesk.FolderData;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -24,10 +25,16 @@ namespace HelpDesk.FolderPage.Section
     /// </summary>
     public partial class AccSection : Page
     {
+        MainPageStaff pageStaff = new MainPageStaff();
         public AccSection()
         {
             InitializeComponent();
             tbSearch.ItemsSource = DBEntities.GetContext().SearchHelp.ToList();
+            btnSettings.Click += (s, e) => pageStaff.InProgreccMessage();
+            btnSecure.Click += (s, e) => pageStaff.InProgreccMessage();
+            btnSoftware.Click += (s, e) => pageStaff.InProgreccMessage();
+            btnProduct.Click += (s, e) => pageStaff.InProgreccMessage();
+            btnOther.Click += (s, e) => pageStaff.InProgreccMessage();
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -75,19 +82,17 @@ namespace HelpDesk.FolderPage.Section
             }
         }
 
-        private void tbSearch_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private async void tbSearch_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             var searchValue = tbSearch.Text.ToLower();
-
-            var categories = DBEntities.GetContext().SearchHelp.Where(c => c.Name.ToLower().Contains(searchValue)).ToList();
-
+            var categories = await DBEntities.GetContext().SearchHelp.Where(c => c.Name.ToLower().Contains(searchValue)).ToListAsync();
             if (categories != null && categories.Count > 0)
             {
                 tbSearch.ItemsSource = categories;
             }
             else
             {
-                tbSearch.ItemsSource = DBEntities.GetContext().SearchHelp.ToList();
+                tbSearch.ItemsSource = await DBEntities.GetContext().SearchHelp.ToListAsync();
             }
         }
 

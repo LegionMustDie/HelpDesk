@@ -40,7 +40,7 @@ namespace HelpDesk.FolderPage.StaffPages
             MessageSwap();
         }
 
-        private void MessageSwap()
+        private async void MessageSwap()
         {
             switch(VariableClass.protectthis)
             {
@@ -49,13 +49,13 @@ namespace HelpDesk.FolderPage.StaffPages
                     break;
                     case 1:
                     requestStaff.IdStatus = 3;
-                    DBEntities.GetContext().SaveChanges();
+                    await DBEntities.GetContext().SaveChangesAsync();
                     MailProcces();
                     break;
             }
         }
 
-        private void btnBack_Click(object sender, RoutedEventArgs e)
+        private async void btnBack_Click(object sender, RoutedEventArgs e)
         {
             switch (VariableClass.protectthis)
             {
@@ -64,13 +64,13 @@ namespace HelpDesk.FolderPage.StaffPages
                     break;
                 case 1:
                     requestStaff.IdStatus = 1;
-                    DBEntities.GetContext().SaveChanges();
+                    await DBEntities.GetContext().SaveChangesAsync();
                     NavigationService.Navigate(new OpenRequest(requestStaff));
                     break;
             }
         }
 
-        private void btnClose_Click(object sender, RoutedEventArgs e)
+        private async void btnClose_Click(object sender, RoutedEventArgs e)
         {
             switch (VariableClass.protectthis)
             {
@@ -79,7 +79,7 @@ namespace HelpDesk.FolderPage.StaffPages
                     break;
                 case 1:
                     requestStaff.IdStatus = 1;
-                    DBEntities.GetContext().SaveChanges();
+                    await DBEntities.GetContext().SaveChangesAsync();
                     ClassMessageBox.ExitMB();
                     break;
             }
@@ -99,7 +99,6 @@ namespace HelpDesk.FolderPage.StaffPages
                 client.EnableSsl = true;
                 client.UseDefaultCredentials = false;
                 client.Credentials = new NetworkCredential(ipsender, "ivdwddzgxcgktnht");
-
 
                 client.Send(message);
                 ClassMessageBox.InfoMB("Сообщение отправлено.");

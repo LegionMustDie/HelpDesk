@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using HelpDesk.FolderWindow.FolderStaff;
 using HelpDesk.FolderPage.StaffPages;
 using HelpDesk.FolderPage;
+using System.Data.Entity;
 
 namespace HelpDesk.FolderWindow
 {
@@ -72,24 +73,21 @@ namespace HelpDesk.FolderWindow
                 try
                 {
                     var user = DBEntities.GetContext().User
-                        .FirstOrDefault(u=> u.LogUser == tbLogin.Text &&
-                        u.PasUser == pbPassword.Password);
+                    .FirstOrDefault(u => u.LogUser == tbLogin.Text && u.PasUser == pbPassword.Password);
 
                     if (user == null)
                     {
                         ClassMessageBox.ErrorMB("Логин или пароль введены неверно");
                         wrongCounts++;
                     }
-
                     else if (user.PasUser != pbPassword.Password)
                     {
                         ClassMessageBox.ErrorMB("Логин или пароль введены неверно");
                         wrongCounts++;
                     }
-
                     else
                     {
-                        switch(user.IdRole)
+                        switch (user.IdRole)
                         {
                             case 1:
                                 VariableClass.IdUser = user.IdUser;
@@ -109,7 +107,6 @@ namespace HelpDesk.FolderWindow
                                 new StaffMainPage(new MainPageStaff()).Show();
                                 Close();
                                 break;
-
                         }
                     }
                 }

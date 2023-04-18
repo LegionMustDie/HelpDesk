@@ -36,6 +36,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>HD.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -176,6 +179,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="HD.ico" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -192,6 +196,16 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="FolderData\ModelDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+      <LastGenOutput>ModelDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="FolderData\ModelDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+      <LastGenOutput>ModelDB.cs</LastGenOutput>
+    </Content>
     <Content Include="FolderSite\fonts\VK Sans DemiBold %40vk_leaks.otf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -297,20 +311,13 @@
     <Resource Include="FolderDictionary\FolderImage\question.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FolderData\ModelDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelDB.edmx</DependentUpon>
-      <LastGenOutput>ModelDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="FolderData\ModelDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelDB.edmx</DependentUpon>
-      <LastGenOutput>ModelDB.cs</LastGenOutput>
-    </Content>
     <Content Include="FolderSite\css\style.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="FolderSite\html\actuallyerrors.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FolderSite\html\message.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="FolderSite\html\spravka.html">

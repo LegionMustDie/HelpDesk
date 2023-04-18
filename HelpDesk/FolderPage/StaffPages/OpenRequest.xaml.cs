@@ -36,7 +36,7 @@ namespace HelpDesk.FolderPage.StaffPages
             ImageBtn.Click += (s, e) => OpenImage(req.ImageOne);
             ImageBtnTwo.Click += (s, e) => OpenImage(req.ImageTwo);
             ImageBtnThree.Click += (s, e) => OpenImage(req.ImageThree);
-  
+            ProtectRequest();
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -44,12 +44,12 @@ namespace HelpDesk.FolderPage.StaffPages
             ClassMessageBox.ExitMB();
         }
 
-        private void btnSend_Click(object sender, RoutedEventArgs e)
+        private async void btnSend_Click(object sender, RoutedEventArgs e)
         {
             MessagePage mspage = new MessagePage();
             mspage.tbAddress.Text = reqstaff.Staff.Email;
             reqstaff.IdStatus = 2;
-            DBEntities.GetContext().SaveChanges();
+            await DBEntities.GetContext().SaveChangesAsync();
             VariableClass.protectthis = 1;
             NavigationService.Navigate(mspage);
         }
@@ -77,12 +77,21 @@ namespace HelpDesk.FolderPage.StaffPages
             window.Show();
         }
 
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        private async void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             reqstaff.IdStatus = 4;
-            DBEntities.GetContext().SaveChanges();
+            await DBEntities.GetContext().SaveChangesAsync();
             ClassMessageBox.InfoMB("Запрос удален.");
             NavigationService.Navigate(new RequestLits());
+        }
+
+        private void ProtectRequest()
+        {
+            if (reqstaff.IdStatus == 3)
+            {
+                btnDelete.IsEnabled = false;
+                btnSend.IsEnabled = false;
+            }
         }
     }
 }

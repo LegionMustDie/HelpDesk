@@ -63,63 +63,95 @@ namespace HelpDesk.FolderPage.StaffPages
             }
         }
 
-        private void LoadData()
+        private async void LoadData()
         {
-            var query = DBEntities.GetContext().RequestStaff.Where(x => x.IdStatus == 1 ||
-            x.IdStatus == 2).OrderBy(x => x.IdRequest);
-
-            pageCount = (int)Math.Ceiling((double)query.Count() / pageSize);
-
-            if (pageNumber >= pageCount - 1)
+            await Task.Run(() =>
             {
-                pageNumber = pageCount - 1;
-                btnNext.IsEnabled = false;
-            }
-            else
-            {
-                btnNext.IsEnabled = true;
-            }
+                var query = DBEntities.GetContext().RequestStaff.Where(x => x.IdStatus == 1 ||
+                x.IdStatus == 2).OrderBy(x => x.IdRequest);
 
-            if (pageNumber == 0)
-            {
-                btnBack.IsEnabled = false;
-            }
-            else
-            {
-                btnBack.IsEnabled = true;
-            }
+                pageCount = (int)Math.Ceiling((double)query.Count() / pageSize);
 
-            var data = query
-                .Skip(pageNumber * pageSize)
-                .Take(pageSize)
-                .ToList();
+                Dispatcher.Invoke(() =>
+                {
+                    if (pageNumber >= pageCount - 1)
+                    {
+                        pageNumber = pageCount - 1;
+                        btnNext.IsEnabled = false;
+                    }
+                    else
+                    {
+                        btnNext.IsEnabled = true;
+                    }
+                });
+                
+                Dispatcher.Invoke(() =>
+                {
+                    if (pageNumber == 0)
+                    {
+                        btnBack.IsEnabled = false;
+                    }
+                    else
+                    {
+                        btnBack.IsEnabled = true;
+                    }
+                });
 
-            dgRequest.ItemsSource = data;
+                var data = query
+                    .Skip(pageNumber * pageSize)
+                    .Take(pageSize)
+                    .ToList();
+
+                Dispatcher.Invoke(() =>
+                {
+                    dgRequest.ItemsSource = data;
+                });
+            });
         }
 
-        private void AnotherLoadData()
+        private async void AnotherLoadData()
         {
-            var query = DBEntities.GetContext().RequestStaff.OrderBy(x => x.IdRequest);
-            pageCount = (int)Math.Ceiling((double)query.Count() / pageSize);
-            if (pageNumber >= pageCount - 1)
+            await Task.Run(() =>
             {
-                pageNumber = pageCount - 1;
-                btnNext.IsEnabled = false;
-            }
-            else
-            {
-                btnNext.IsEnabled = true;
-            }
-            if (pageNumber == 0)
-            {
-                btnBack.IsEnabled = false;
-            }
-            else
-            {
-                btnBack.IsEnabled = true;
-            }
-            var data = query.Skip(pageNumber * pageSize).Take(pageSize).ToList();
-            dgRequest.ItemsSource = data;
+                var query = DBEntities.GetContext().RequestStaff.OrderBy(x => x.IdRequest);
+
+                pageCount = (int)Math.Ceiling((double)query.Count() / pageSize);
+
+                Dispatcher.Invoke(() =>
+                {
+                    if (pageNumber >= pageCount - 1)
+                    {
+                        pageNumber = pageCount - 1;
+                        btnNext.IsEnabled = false;
+                    }
+                    else
+                    {
+                        btnNext.IsEnabled = true;
+                    }
+                });
+
+                Dispatcher.Invoke(() =>
+                {
+                    if (pageNumber == 0)
+                    {
+                        btnBack.IsEnabled = false;
+                    }
+                    else
+                    {
+                        btnBack.IsEnabled = true;
+                    }
+                });
+
+                var data = query
+                    .Skip(pageNumber * pageSize)
+                    .Take(pageSize)
+                    .ToList();
+
+                Dispatcher.Invoke(() =>
+                {
+                    dgRequest.ItemsSource = data;
+                });
+            });
         }
 
         private void LiveList()
@@ -140,12 +172,12 @@ namespace HelpDesk.FolderPage.StaffPages
             ClassMessageBox.ExitMB();
         }
 
-        private void btnExport_Click(object sender, RoutedEventArgs e)
+        private async void btnExport_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
             Microsoft.Office.Interop.Excel.Workbook workbook = app.Workbooks.Add();
             Microsoft.Office.Interop.Excel.Worksheet worksheet = workbook.ActiveSheet;
-            var data = DBEntities.GetContext().RequestStaff.ToList();
+            var data = await DBEntities.GetContext().RequestStaff.ToListAsync();
             app.Visible = true;
             
             // Заполняем заголовки столбцов

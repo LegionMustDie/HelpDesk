@@ -96,7 +96,7 @@ namespace HelpDesk.FolderPage
             NavigationService.GoBack();
         }
 
-        private void btnSend_Click(object sender, RoutedEventArgs e)
+        private async void btnSend_Click(object sender, RoutedEventArgs e)
         {
             if (CheckInputs(tbText))
             {
@@ -113,7 +113,7 @@ namespace HelpDesk.FolderPage
                         ImageThree = imageBytesForPhoto3,
                     };
                     DBEntities.GetContext().RequestStaff.Add(request);
-                    DBEntities.GetContext().SaveChanges();
+                    await DBEntities.GetContext().SaveChangesAsync();
                     ClassMessageBox.InfoMB("Запрос был отправлен поддержке. " +
                         "Ответ придет в скором времени на почту.");
                     NavigationService.GoBack();

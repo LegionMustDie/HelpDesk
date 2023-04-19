@@ -1,10 +1,8 @@
 ﻿using HelpDesk.FolderClass;
 using HelpDesk.FolderData;
-using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,20 +19,15 @@ using System.Windows.Shapes;
 namespace HelpDesk.FolderPage.Section
 {
     /// <summary>
-    /// Логика взаимодействия для AccSection.xaml
+    /// Логика взаимодействия для DeviceSection.xaml
     /// </summary>
-    public partial class AccSection : Page
+    public partial class DeviceSection : Page
     {
-        MainPageStaff pageStaff = new MainPageStaff();
-        public AccSection()
+        MainPageStaff mainPageStaff = new MainPageStaff();
+        public DeviceSection()
         {
             InitializeComponent();
             tbSearch.ItemsSource = DBEntities.GetContext().SearchHelp.ToList();
-            btnSettings.Click += (s, e) => pageStaff.InProgreccMessage();
-            btnSecure.Click += (s, e) => pageStaff.InProgreccMessage();
-            btnSoftware.Click += (s, e) => pageStaff.InProgreccMessage();
-            btnProduct.Click += (s, e) => pageStaff.InProgreccMessage();
-            btnOther.Click += (s, e) => pageStaff.InProgreccMessage();
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -42,23 +35,9 @@ namespace HelpDesk.FolderPage.Section
             ClassMessageBox.ExitMB();
         }
 
-        private void btnRecovery_Click(object sender, RoutedEventArgs e)
+        private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            SiteOppener();
-        }
-
-        public void SiteOppener()
-        {
-            var path =
-                System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "FolderSite", "html", "spravka.html");
-            var process = new Process();
-            process.StartInfo.FileName = path;
-            process.Start();
-        }
-
-        private void btnSupport_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new AddPostPage());
+            NavigationService.GoBack();
         }
 
         private void tbSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -76,7 +55,8 @@ namespace HelpDesk.FolderPage.Section
                         NavigationService.Navigate(new DeviceSection());
                         break;
                     case 8:
-                        SiteOppener();
+                        AccSection acc = new AccSection();
+                        acc.SiteOppener();
                         break;
                     default:
                         ClassMessageBox.InfoMB("Страница в разработке");
@@ -101,9 +81,9 @@ namespace HelpDesk.FolderPage.Section
             }
         }
 
-        private void btnBack_Click(object sender, RoutedEventArgs e)
+        private void btnSupport_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new AddPostPage());
         }
     }
 }

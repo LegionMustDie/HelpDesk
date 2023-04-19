@@ -1,13 +1,13 @@
-﻿<Page x:Class="HelpDesk.FolderPage.MainPageStaff"
+﻿<Page x:Class="HelpDesk.FolderPage.Section.DeviceSection"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      xmlns:local="clr-namespace:HelpDesk.FolderPage"
+      xmlns:local="clr-namespace:HelpDesk.FolderPage.Section"
       mc:Ignorable="d" 
-      d:DesignHeight="780" d:DesignWidth="1320"
-      Title="Выбор категории">
+     d:DesignHeight="780" d:DesignWidth="1320"
+      Title="Выбор раздела">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
@@ -76,7 +76,7 @@
                    Grid.ColumnSpan="11"
                    Grid.Row="1"
                    Grid.RowSpan="2"/>
-        
+
         <Canvas Grid.Column="0"
                 Grid.ColumnSpan="19"
                 Grid.Row="3" Width="1320">
@@ -88,7 +88,7 @@
                      Grid.Row="3"
                      materialDesign:HintAssist.Hint="Опишите вашу проблему"
                      SelectionChanged="tbSearch_SelectionChanged"
-                     PreviewTextInput="tbSearch_TextInput"
+                     PreviewTextInput="tbSearch_PreviewTextInput"
                      IsEditable="True" 
                      IsTextSearchEnabled="False"
                      DisplayMemberPath="Name"
@@ -107,14 +107,14 @@
                Canvas.Left="79"/>
         </Canvas>
 
-        <Button x:Name="btnAcc"
+        <Button x:Name="btnPC"
                 Grid.Row="5"
                 Style="{DynamicResource PageButton}" 
-                Grid.Column="2"
-                Click="btnAcc_Click">
+                Grid.Column="2">
             <StackPanel Orientation="Vertical">
-                <Image Source="/FolderDictionary/FolderImage/acc.png" Height="70" Width="70" />
-                <Label Content="Аккаунт" Style="{DynamicResource PageButtonText}"/>
+                <Image Source="/FolderDictionary/FolderImage/computer.png" 
+                       Height="85" Width="85" />
+                <Label Content="Компьютер" Style="{DynamicResource PageButtonText}"/>
             </StackPanel>
         </Button>
 
@@ -122,11 +122,10 @@
                 Grid.Row="5"
                 Style="{DynamicResource PageButton}" 
                 Grid.Column="4"
-                Grid.ColumnSpan="3"
-                Click="btnDevice_Click">
+                Grid.ColumnSpan="3">
             <StackPanel Orientation="Vertical">
-                <Image Source="/FolderDictionary/FolderImage/devices.png" Height="85" Width="85" />
-                <Label Content="Устройства" Style="{DynamicResource PageButtonText}"/>
+                <Image Source="/FolderDictionary/FolderImage/phone.png" Height="96" Width="85" />
+                <TextBlock Text="Мобильный телефон" Style="{DynamicResource WrapText}"/>
             </StackPanel>
         </Button>
 
@@ -136,8 +135,8 @@
                 Grid.Column="8"
                 Grid.ColumnSpan="3">
             <StackPanel Orientation="Vertical">
-                <Image Source="/FolderDictionary/FolderImage/access.png" Height="80" Width="80" />
-                <Label Content="Доступ" Style="{DynamicResource PageButtonText}"/>
+                <Image Source="/FolderDictionary/FolderImage/server.png" Height="82" Width="80" />
+                <Label Content="Сервер" Style="{DynamicResource PageButtonText}"/>
             </StackPanel>
         </Button>
 
@@ -147,41 +146,32 @@
                 Grid.Column="12"
                 Grid.ColumnSpan="3">
             <StackPanel Orientation="Vertical">
-                <Image Source="/FolderDictionary/FolderImage/software.png" Height="100" Width="80" />
-                <TextBlock Text="Программное обеспечение"
+                <Image Source="/FolderDictionary/FolderImage/printer.png"
+                       Height="110" Width="90" />
+                <TextBlock Text="МФУ"
                            Style="{DynamicResource WrapText}"/>
             </StackPanel>
         </Button>
 
-        <Button x:Name="btnProduct"
+        <Button x:Name="btnOther"
                 Grid.Row="5"
                 Style="{DynamicResource PageButton}" 
                 Grid.Column="16">
             <StackPanel Orientation="Vertical">
-                <Image Source="/FolderDictionary/FolderImage/product.png" Height="90" Width="90" />
-                <Label Content="Продукция" Style="{DynamicResource PageButtonText}"/>
-            </StackPanel>
-        </Button>
-
-        <Button x:Name="btnDoc"
-                Grid.Row="7"
-                Style="{DynamicResource PageButton}" 
-                Grid.Column="5"
-                Grid.ColumnSpan="5" Margin="51,0,52,0">
-            <StackPanel Orientation="Vertical">
-                <Image Source="/FolderDictionary/FolderImage/docs.png" Height="80" Width="80" />
-                <Label Content="Документация" Style="{DynamicResource PageButtonText}"/>
-            </StackPanel>
-        </Button>
-
-        <Button x:Name="btnOther"
-                Grid.Row="7"
-                Style="{DynamicResource PageButton}" 
-                Grid.Column="9"
-                Grid.ColumnSpan="5" Margin="51,0,52,0">
-            <StackPanel Orientation="Vertical">
                 <Image Source="/FolderDictionary/FolderImage/other.png" Height="80" Width="80" />
                 <Label Content="Другое" Style="{DynamicResource PageButtonText}"/>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="btnSupport"
+                Grid.Row="7"
+                Style="{DynamicResource PageButton}" 
+                Grid.Column="8"
+                Grid.ColumnSpan="3"
+                Click="btnSupport_Click">
+            <StackPanel Orientation="Vertical">
+                <Image Source="/FolderDictionary/FolderImage/support.png" Height="99" Width="70" />
+                <TextBlock Text="Связаться с поддержкой" Style="{DynamicResource WrapText}"/>
             </StackPanel>
         </Button>
     </Grid>

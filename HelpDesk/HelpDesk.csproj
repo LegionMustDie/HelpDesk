@@ -37,8 +37,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>HD.ico</ApplicationIcon>
+    <ApplicationIcon>cms-1.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -141,6 +142,9 @@
     <Compile Include="FolderPage\Section\AccSection.xaml.cs">
       <DependentUpon>AccSection.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FolderPage\Section\DeviceSection.xaml.cs">
+      <DependentUpon>DeviceSection.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FolderPage\StaffPages\MessagePage.xaml.cs">
       <DependentUpon>MessagePage.xaml</DependentUpon>
     </Compile>
@@ -179,7 +183,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Resource Include="HD.ico" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -196,6 +199,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="cms-1.ico" />
     <Content Include="FolderData\ModelDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelDB.edmx</DependentUpon>
@@ -206,6 +210,10 @@
       <DependentUpon>ModelDB.edmx</DependentUpon>
       <LastGenOutput>ModelDB.cs</LastGenOutput>
     </Content>
+    <Resource Include="FolderDictionary\FolderImage\computer.png" />
+    <Resource Include="FolderDictionary\FolderImage\phone.png" />
+    <Resource Include="FolderDictionary\FolderImage\server.png" />
+    <Resource Include="FolderDictionary\FolderImage\printer.png" />
     <Content Include="FolderSite\fonts\VK Sans DemiBold %40vk_leaks.otf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -230,6 +238,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FolderPage\Section\AccSection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderPage\Section\DeviceSection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

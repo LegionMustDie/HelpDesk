@@ -30,13 +30,11 @@ namespace HelpDesk.FolderPage
     /// </summary>
     public partial class MainPageStaff : Page
     {
-        public int i = 0;
 
         public MainPageStaff()
         {
             InitializeComponent();
             tbSearch.ItemsSource = DBEntities.GetContext().SearchHelp.ToList();
-            btnDevice.Click += (s, e) => InProgreccMessage();
             btnAccess.Click += (s, e) => InProgreccMessage();
             btnSoftware.Click += (s, e) => InProgreccMessage();
             btnProduct.Click += (s, e) => InProgreccMessage();
@@ -57,11 +55,6 @@ namespace HelpDesk.FolderPage
 
         private void tbSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SearchProtocol();
-        }
-
-        public void SearchProtocol()
-        {
             if (tbSearch.SelectedItem != null)
             {
                 var item = tbSearch.SelectedItem as SearchHelp;
@@ -70,6 +63,9 @@ namespace HelpDesk.FolderPage
                 {
                     case 1:
                         NavigationService.Navigate(new AccSection());
+                        break;
+                    case 2:
+                        NavigationService.Navigate(new DeviceSection());
                         break;
                     case 8:
                         AccSection acc = new AccSection();
@@ -111,6 +107,12 @@ namespace HelpDesk.FolderPage
         public void InProgreccMessage()
         {
             ClassMessageBox.InfoMB("Данный модуль в разработке");
+        }
+
+        private void btnDevice_Click(object sender, RoutedEventArgs e)
+        {
+            VariableClass.IdCategory = 2;
+            NavigationService.Navigate(new DeviceSection());
         }
     }
 }

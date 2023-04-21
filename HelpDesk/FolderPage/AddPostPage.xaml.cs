@@ -88,6 +88,9 @@ namespace HelpDesk.FolderPage
                 case 1:
                     cbSection.SelectedIndex = 0;
                     break;
+                case 2:
+                    cbSection.SelectedIndex = 1;
+                    break;
             }
         }
 

@@ -200,6 +200,10 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Resource Include="cms-1.ico" />
+    <Resource Include="FolderDictionary\FolderImage\computer.png" />
+    <Resource Include="FolderDictionary\FolderImage\phone.png" />
+    <Resource Include="FolderDictionary\FolderImage\server.png" />
+    <Resource Include="FolderDictionary\FolderImage\printer.png" />
     <Content Include="FolderData\ModelDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelDB.edmx</DependentUpon>
@@ -210,10 +214,6 @@
       <DependentUpon>ModelDB.edmx</DependentUpon>
       <LastGenOutput>ModelDB.cs</LastGenOutput>
     </Content>
-    <Resource Include="FolderDictionary\FolderImage\computer.png" />
-    <Resource Include="FolderDictionary\FolderImage\phone.png" />
-    <Resource Include="FolderDictionary\FolderImage\server.png" />
-    <Resource Include="FolderDictionary\FolderImage\printer.png" />
     <Content Include="FolderSite\fonts\VK Sans DemiBold %40vk_leaks.otf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

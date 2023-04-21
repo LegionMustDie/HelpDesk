@@ -64,12 +64,12 @@
 
         <TextBlock Text="{Binding Category.NameCategory}"
                    Grid.Column="4"
-                   Grid.ColumnSpan="3"
+                   Grid.ColumnSpan="6"
                    Grid.Row="1"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Bottom"
                    FontSize="32"
-                   Style="{DynamicResource MaintextBlock}" Width="344" Margin="11,0,0,8"/>
+                   Style="{DynamicResource MaintextBlock}" Width="879" Margin="11,0,0,8"/>
 
         <Label Content="Описание проблемы:"
                Grid.Row="3"

@@ -18,6 +18,7 @@ namespace HelpDesk.FolderData
         public DBEntities()
             : base("name=DBEntities")
         {
+            this.Configuration.LazyLoadingEnabled = true;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -139,6 +139,9 @@
     <Compile Include="FolderPage\MainPageStaff.xaml.cs">
       <DependentUpon>MainPageStaff.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FolderPage\Section\AccessSection.xaml.cs">
+      <DependentUpon>AccessSection.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FolderPage\Section\AccSection.xaml.cs">
       <DependentUpon>AccSection.xaml</DependentUpon>
     </Compile>
@@ -214,6 +217,10 @@
       <DependentUpon>ModelDB.edmx</DependentUpon>
       <LastGenOutput>ModelDB.cs</LastGenOutput>
     </Content>
+    <Resource Include="FolderDictionary\FolderImage\box.png" />
+    <Resource Include="FolderDictionary\FolderImage\web.png" />
+    <Resource Include="FolderDictionary\FolderImage\file.png" />
+    <Resource Include="FolderDictionary\FolderImage\system.png" />
     <Content Include="FolderSite\fonts\VK Sans DemiBold %40vk_leaks.otf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -234,6 +241,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FolderPage\MainPageStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderPage\Section\AccessSection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

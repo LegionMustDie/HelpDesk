@@ -86,7 +86,7 @@
                      Grid.Column="5"
                      Grid.ColumnSpan="9"
                      Grid.Row="3"
-                     materialDesign:HintAssist.Hint="Опишите вашу проблему"
+                     materialDesign:HintAssist.Hint="Что у вас случилось?"
                      SelectionChanged="tbSearch_SelectionChanged"
                      PreviewTextInput="tbSearch_PreviewTextInput"
                      IsEditable="True" 

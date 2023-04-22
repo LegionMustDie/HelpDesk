@@ -86,7 +86,7 @@
                      Grid.Column="5"
                      Grid.ColumnSpan="9"
                      Grid.Row="3"
-                     materialDesign:HintAssist.Hint="Опишите вашу проблему"
+                     materialDesign:HintAssist.Hint="Что у вас случилось?"
                      SelectionChanged="tbSearch_SelectionChanged"
                      PreviewTextInput="tbSearch_TextInput"
                      IsEditable="True" 
@@ -134,7 +134,8 @@
                 Grid.Row="5"
                 Style="{DynamicResource PageButton}" 
                 Grid.Column="8"
-                Grid.ColumnSpan="3">
+                Grid.ColumnSpan="3"
+                Click="btnAccess_Click">
             <StackPanel Orientation="Vertical">
                 <Image Source="/FolderDictionary/FolderImage/access.png" Height="80" Width="80" />
                 <Label Content="Доступ" Style="{DynamicResource PageButtonText}"/>

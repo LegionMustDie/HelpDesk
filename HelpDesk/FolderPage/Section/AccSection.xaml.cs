@@ -75,6 +75,9 @@ namespace HelpDesk.FolderPage.Section
                     case 2:
                         NavigationService.Navigate(new DeviceSection());
                         break;
+                    case 3:
+                        NavigationService.Navigate(new AccessSection());
+                        break;
                     case 8:
                         SiteOppener();
                         break;

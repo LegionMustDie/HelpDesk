@@ -28,6 +28,11 @@ namespace HelpDesk.FolderPage.Section
         {
             InitializeComponent();
             tbSearch.ItemsSource = DBEntities.GetContext().SearchHelp.ToList();
+            btnPC.Click += (s, e) => mainPageStaff.InProgreccMessage();
+            btnDevice.Click += (s, e) => mainPageStaff.InProgreccMessage();
+            btnAccess.Click += (s, e) => mainPageStaff.InProgreccMessage();
+            btnSoftware.Click += (s, e) => mainPageStaff.InProgreccMessage();
+            btnOther.Click += (s, e) => mainPageStaff.InProgreccMessage();
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -53,6 +58,9 @@ namespace HelpDesk.FolderPage.Section
                         break;
                     case 2:
                         NavigationService.Navigate(new DeviceSection());
+                        break;
+                    case 3:
+                        NavigationService.Navigate(new AccessSection());
                         break;
                     case 8:
                         AccSection acc = new AccSection();

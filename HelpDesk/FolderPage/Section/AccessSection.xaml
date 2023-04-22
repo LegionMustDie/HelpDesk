@@ -1,4 +1,4 @@
-﻿<Page x:Class="HelpDesk.FolderPage.Section.AccSection"
+﻿<Page x:Class="HelpDesk.FolderPage.Section.AccessSection"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,8 +7,7 @@
       xmlns:local="clr-namespace:HelpDesk.FolderPage.Section"
       mc:Ignorable="d" 
       d:DesignHeight="780" d:DesignWidth="1320"
-      Title="Раздел Аккаунта" Cursor="">
-
+      Title="Выбор раздела">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
@@ -45,10 +44,14 @@
 
         <Button x:Name="btnClose" Grid.Column="17"
                     Style="{DynamicResource AnotherCloseButton}"
-                    Click="btnClose_Click" Margin="74,0,-1,36" 
+                    Click="btnClose_Click" Margin="74,0,-1,36"
                     Grid.ColumnSpan="2" Cursor="Hand">
             <Image Style="{StaticResource CloseImage}"/>
         </Button>
+
+        <Image Style="{DynamicResource Logo}"
+               Grid.Column="9" Margin="2,20,2,47" 
+               Grid.RowSpan="2"/>
 
         <Button x:Name="btnBack"
                 Grid.ColumnSpan="2" Margin="0,0,73,36"
@@ -66,9 +69,6 @@
                 </Image.RenderTransform>
             </Image>
         </Button>
-
-        <Image Style="{DynamicResource Logo}"
-                   Grid.Column="9" Margin="2,20,2,47" Grid.RowSpan="2"/>
 
         <Label Content="Какая проблема у вас возникла?"
                    Style="{DynamicResource MainText2}"
@@ -107,82 +107,73 @@
                Canvas.Left="79"/>
         </Canvas>
 
-        <Button x:Name="btnSettings"
+        <Button x:Name="btnArchive"
                 Grid.Row="5"
                 Style="{DynamicResource PageButton}" 
                 Grid.Column="2">
             <StackPanel Orientation="Vertical">
-                <Image Source="/FolderDictionary/FolderImage/user_settings.png" Height="99" Width="70" />
-                <TextBlock Text="Управление аккаунтом" Style="{DynamicResource WrapText}"/>
+                <Image Source="/FolderDictionary/FolderImage/box.png" 
+                       Height="90" Width="90" />
+                <Label Content="Архив" Style="{DynamicResource PageButtonText}"/>
             </StackPanel>
         </Button>
 
-        <Button x:Name="btnRecovery"
+        <Button x:Name="btnSite"
                 Grid.Row="5"
                 Style="{DynamicResource PageButton}" 
                 Grid.Column="4"
-                Grid.ColumnSpan="3"
-                Click="btnRecovery_Click">
+                Grid.ColumnSpan="3">
             <StackPanel Orientation="Vertical">
-                <Image Source="/FolderDictionary/FolderImage/recovery.png" Height="99" Width="78" />
-                <TextBlock Text="Восстановление аккаунта" Style="{DynamicResource WrapText}"/>
+                <Image Source="/FolderDictionary/FolderImage/web.png" 
+                       Height="105" Width="100" />
+                <TextBlock Text="Сайт" Style="{DynamicResource WrapText}"/>
             </StackPanel>
         </Button>
 
-        <Button x:Name="btnSecure"
+        <Button x:Name="btnDoc"
                 Grid.Row="5"
                 Style="{DynamicResource PageButton}" 
                 Grid.Column="8"
                 Grid.ColumnSpan="3">
             <StackPanel Orientation="Vertical">
-                <Image Source="/FolderDictionary/FolderImage/secure.png" Height="99" Width="75" />
-                <TextBlock Text="Безопасность аккаунта" Style="{DynamicResource WrapText}"/>
+                <Image Source="/FolderDictionary/FolderImage/file.png" 
+                       Height="104" Width="88" />
+                <Label Content="Документы" Style="{DynamicResource PageButtonText}"/>
             </StackPanel>
         </Button>
 
-        <Button x:Name="btnSoftware"
+        <Button x:Name="btnSystem"
                 Grid.Row="5"
                 Style="{DynamicResource PageButton}" 
                 Grid.Column="12"
                 Grid.ColumnSpan="3">
             <StackPanel Orientation="Vertical">
-                <Image Source="/FolderDictionary/FolderImage/lock.png" Height="99" Width="75" />
-                <TextBlock Text="Конфидициальность аккаунта"
-                           FontSize="16"
+                <Image Source="/FolderDictionary/FolderImage/system.png"
+                       Height="110" Width="100" />
+                <TextBlock Text="Система"
                            Style="{DynamicResource WrapText}"/>
             </StackPanel>
         </Button>
 
-        <Button x:Name="btnProduct"
+        <Button x:Name="btnOther"
                 Grid.Row="5"
                 Style="{DynamicResource PageButton}" 
                 Grid.Column="16">
             <StackPanel Orientation="Vertical">
-                <Image Source="/FolderDictionary/FolderImage/attention.png" Height="99" Width="78" />
-                <TextBlock Text="Устранение неполадок" Style="{DynamicResource WrapText}"/>
+                <Image Source="/FolderDictionary/FolderImage/other.png" Height="80" Width="80" />
+                <Label Content="Другое" Style="{DynamicResource PageButtonText}"/>
             </StackPanel>
         </Button>
 
         <Button x:Name="btnSupport"
                 Grid.Row="7"
                 Style="{DynamicResource PageButton}" 
-                Grid.Column="9"
-                Grid.ColumnSpan="5" Margin="51,0,52,0"
+                Grid.Column="8"
+                Grid.ColumnSpan="3"
                 Click="btnSupport_Click">
             <StackPanel Orientation="Vertical">
                 <Image Source="/FolderDictionary/FolderImage/support.png" Height="99" Width="70" />
                 <TextBlock Text="Связаться с поддержкой" Style="{DynamicResource WrapText}"/>
-            </StackPanel>
-        </Button>
-
-        <Button x:Name="btnOther"
-                Grid.Row="7"
-                Style="{DynamicResource PageButton}" 
-                Grid.Column="5"
-                Grid.ColumnSpan="5" Margin="51,0,52,0">
-            <StackPanel Orientation="Vertical">
-                <Image Source="/FolderDictionary/FolderImage/other.png" Height="80" Width="70" />
-                <Label Content="Другое" Style="{DynamicResource PageButtonText}"/>
             </StackPanel>
         </Button>
     </Grid>

@@ -1,15 +1,9 @@
 ﻿using HelpDesk.FolderClass;
 using HelpDesk.FolderData;
-using HelpDesk.FolderPage.Section;
-using HelpDesk.FolderWindow;
-using HelpDesk.FolderWindow.FolderStaff;
-using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Diagnostics;
 using System.Linq;
-using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,24 +15,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Xml.Linq;
 
-namespace HelpDesk.FolderPage
+namespace HelpDesk.FolderPage.Section
 {
     /// <summary>
-    /// Логика взаимодействия для MainPageStaff.xaml
+    /// Логика взаимодействия для AccessSection.xaml
     /// </summary>
-    public partial class MainPageStaff : Page
+    public partial class AccessSection : Page
     {
-
-        public MainPageStaff()
+        MainPageStaff mainPageStaff = new MainPageStaff();
+        public AccessSection()
         {
             InitializeComponent();
             tbSearch.ItemsSource = DBEntities.GetContext().SearchHelp.ToList();
-            btnSoftware.Click += (s, e) => InProgreccMessage();
-            btnProduct.Click += (s, e) => InProgreccMessage();
-            btnDoc.Click += (s, e) => InProgreccMessage();
-            btnOther.Click += (s, e) => InProgreccMessage();
+            btnArchive.Click += (s, e) => mainPageStaff.InProgreccMessage();
+            btnSite.Click += (s, e) => mainPageStaff.InProgreccMessage();
+            btnDoc.Click += (s, e) => mainPageStaff.InProgreccMessage();
+            btnSystem.Click += (s, e) => mainPageStaff.InProgreccMessage();
+            btnOther.Click += (s, e) => mainPageStaff.InProgreccMessage();
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -46,10 +40,9 @@ namespace HelpDesk.FolderPage
             ClassMessageBox.ExitMB();
         }
 
-        private void btnAcc_Click(object sender, RoutedEventArgs e)
+        private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            VariableClass.IdCategory = 1;
-            NavigationService.Navigate(new AccSection());
+            NavigationService.GoBack();
         }
 
         private void tbSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -80,7 +73,7 @@ namespace HelpDesk.FolderPage
             }
         }
 
-        private async void tbSearch_TextInput(object sender, TextCompositionEventArgs e)
+        private async void tbSearch_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             var searchValue = tbSearch.Text.ToLower();
 
@@ -96,31 +89,9 @@ namespace HelpDesk.FolderPage
             }
         }
 
-        private void btnBack_Click(object sender, RoutedEventArgs e)
+        private void btnSupport_Click(object sender, RoutedEventArgs e)
         {
-            bool Result = ClassMessageBox.QuestionMB("Уже уходите?");
-            if (Result == true)
-            {
-                StaffMainPage mainPage = (StaffMainPage)Window.GetWindow(this);
-                mainPage.CloseWin();
-            }
-        }
-
-        public void InProgreccMessage()
-        {
-            ClassMessageBox.InfoMB("Данный модуль в разработке");
-        }
-
-        private void btnDevice_Click(object sender, RoutedEventArgs e)
-        {
-            VariableClass.IdCategory = 2;
-            NavigationService.Navigate(new DeviceSection());
-        }
-
-        private void btnAccess_Click(object sender, RoutedEventArgs e)
-        {
-            VariableClass.IdCategory = 3;
-            NavigationService.Navigate(new AccessSection());
+            NavigationService.Navigate(new AddPostPage());
         }
     }
 }
